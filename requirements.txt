@@ -1,0 +1,21 @@
+Pillow
+requests
+simplejson
+SpeechRecognition
+youtube-dl
+asyncio
+uuid
+typing-extensions
+datetime
+TenGiphPy
+
+discord
+discord.py
+discord-together
+discord-select-menus
+dpymenus
+dislash.py
+discord-ui
+# discord-components
+
+# pip3 install Flask Pillow requests simplejson SpeechRecognition youtube-dl asyncio uuid typing-extensions datetime TenGiphPy discord discord.py discord-together discord-select-menus dpymenus dislash.py discord-ui discord-components

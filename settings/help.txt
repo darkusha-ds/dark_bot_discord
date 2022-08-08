@@ -1,0 +1,36 @@
+# emb = discord.Embed(
+#                 title='Навигация по командам :clipboard:',
+#                 colour=(discord.Colour.random())
+#             )
+#             emb.add_field(name='**Основные команды**', value=f'''
+# ``{pr}тык``\nзатыкать человечка
+# ``{pr}убить``\nубить злого человека
+# ``{pr}снежок``\nкинуть снежок в человечка
+# ``{pr}обнять``\nустроить обнимашки
+# ``{pr}умереть``\nсделать самоубийство(ОСУЖДАЮ)
+# ``{pr}погладить``\nпогладить сладкого пирожка
+# ``{pr}поцеловать``\nпочеловать человечка
+# ``{pr}afk``\nвойти в АФК
+# ``{pr}exit``\nвыйти из АФК
+# ``{pr}зайти``
+# ``{pr}выйти``
+# ''', inline=False)
+#             emb.add_field(name='**Приколюшки**', value=f'''
+# ``{pr}password``\nгенератор паролей
+# ``{pr}key``\nгенератор uuid идентификатора
+# ``{pr}шар``\nзадать вопрос магическому шару
+# ``{pr}ютуб``\nпосмотреть ютубчик в дискорде
+#    P.S чтобы посмотреть ют, надо зайти в голосовой
+#                 ''', inline=False)
+#             await ctx.send(embed=emb, delete_after=20.0)
+
+
+# https://github.gitop.top/discord-py-ui/discord-ui
+
+# ================================ import ================================
+
+# from main import *
+# from setting import *
+# or
+# from main import bot, pref, tenor, dt_reg
+# from setting import roles, ch_0, ch_1, ch_2, ch_3, ch_4, load_bot, gui_0, gui_1, gui_2

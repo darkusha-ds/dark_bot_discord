@@ -1,0 +1,14 @@
+https://tutorial.vcokltfre.dev/tutorial/05-cogs
+https://tutorial.vcokltfre.dev/tutorial/06-online
+https://tutorial.vcokltfre.dev/tutorial/07-welcome
+https://tutorial.vcokltfre.dev/tutorial/08-ping2
+https://tutorial.vcokltfre.dev/tutorial/09-snipe
+https://tutorial.vcokltfre.dev/tutorial/11-cooldowns
+https://tutorial.vcokltfre.dev/tutorial/12-errors
+https://tutorial.vcokltfre.dev/tutorial/13-permissions
+https://tutorial.vcokltfre.dev/tutorial/14-converters
+https://tutorial.vcokltfre.dev/tutorial/15-waiting
+https://github.gitop.top/discord-py-ui/discord-ui
+https://github.com/Rapptz/discord.py/tree/master/examples
+https://habr.com/ru/post/310460/
+https://lolz.guru/threads/1685399/

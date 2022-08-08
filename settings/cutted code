@@ -1,0 +1,24 @@
+# main.py
+
+# def restart_program():
+#     python = sys.executable
+#     os.execl(python, python, * sys.argv)
+
+# @bot.command()
+# async def restart(ctx):
+#     message = await ctx.send("Внимание, перезагрузка!")
+#     restart_program()
+
+# @bot.command(aliases=["r"])
+# async def restart(ctx):
+#   await ctx.message.add_reaction("✅")
+#   os.execv(sys.executable, ['python'] + sys.argv)
+#   await ctx.send("succesfully restarted")
+
+# @bot.command()
+# async def stop(ctx):
+#     if ctx.author.id == admin_0:
+#         await ctx.send("Покеда)")
+#         await bot.logout()
+#     else:
+#         await ctx.send("You can't stop me")
