@@ -1,4 +1,3 @@
-import phrazes
 channels = [
     726482240506298378,        # test_server
     791813109425373214,        # bots on mdg
