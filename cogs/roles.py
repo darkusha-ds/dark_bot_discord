@@ -1,4 +1,5 @@
-import discord, datetime, pytz
+import discord, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
@@ -10,9 +11,9 @@ class roles(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"roles load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"roles load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command(name='rols', aliases=["roles", "role"])
+    @commands.command(name='rols', aliases=aliaces_roles)
     @commands.has_permissions(administrator=True)
     async def get_roles_id(self, ctx):
         cci = ctx.channel.id

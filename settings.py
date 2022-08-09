@@ -11,11 +11,15 @@ channels = [
 # channel, where I can see bot time load
 load_bot = 936239894009901166  # test_server
 
-# time for delete_after
+# shortcuts
 time_5s = 5.0          # cogs_time
 time_10s = 10.0        # other_time
 time_20s = 20.0        # def_time
 time_120s = 120.0      # two_mins
+error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
+error_message = "Ошибка, вы пишете не в том канале"
+region = "Asia/Yekaterinburg"
+time_format = '%d-%m-%Y at %H:%M:%S'
 
 servers_id = [
     726477611189927968,        # test server
@@ -58,3 +62,26 @@ roles = [
     # смертные
     939858722824548372         # everyone
 ]
+
+# aliaces for commands
+aliaces_snowball = ["снежок", "snow"]
+aliaces_servers = ["active", "servs"]
+aliaces_logout = ["выйти"]
+aliaces_clear = []
+aliaces_films = ["film", "youtube", "yt", "фильм", "ютуб"]
+aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл"]
+aliaces_roles = ["roles", "role"]
+aliaces_unafk = []
+aliaces_prikl = []
+aliaces_ball = ["шар"]
+aliaces_help = ["хелп", "помощь"]
+aliaces_hugs = ["обнять", "hugs"]
+aliaces_kill = ["убить", "похоронить"]
+aliaces_kiss = ["чмок", "поцеловать", "засосать"]
+aliaces_pats = ["погладить", "pats"]
+aliaces_poke = ["тык", "тыкнуть"]
+aliaces_hit = ["ударить"]
+aliaces_key = []
+aliaces_afk = []
+aliaces_rip = ["умереть"]
+aliaces_pg = ["pass", "пароль"]

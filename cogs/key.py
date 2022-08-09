@@ -1,4 +1,5 @@
-import uuid, datetime, pytz
+import uuid, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
@@ -10,7 +11,7 @@ class key(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"key load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"key load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command()
     @commands.has_any_role(*roles)
@@ -21,7 +22,7 @@ class key(commands.Cog):
             await ctx.send(f'Key : {uuid.uuid4()}')
         else:
             await ctx.channel.purge(limit=1)
-            await ctx.send("Ошибка, вы пишете не в том канале", delete_after=time_10s)
+            await ctx.send(error_message, delete_after=time_10s)
 
 def setup(bot):
     bot.add_cog(key(bot))

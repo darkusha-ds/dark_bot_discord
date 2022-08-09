@@ -1,20 +1,27 @@
-import discord, os, datetime, pytz, TenGiphPy
+import discord, os, datetime, pytz, TenGiphPy, random
 from discord.ext import commands
 from discord_together import DiscordTogether
 from config import *
 from settings import *
 
 # Дьяволенок v1
-pref = D_v1["prefix"]
-tok = D_v1["token"]
+# pref = D_v1["prefix"]
+# tok = D_v1["token"]
 
 # Дьяволенок v2
-# pref = D_v2["prefix"]
-# tok = D_v2["token"]
+pref = D_v2["prefix"]
+tok = D_v2["token"]
 
 tenor = TenGiphPy.Tenor(token=teno["token"])
 bot = commands.Bot(command_prefix=pref)
 bot.remove_command("help")
+
+# gifurl for commands
+gif_hits = tenor.random(str('hits anime'))
+gif_hugs = tenor.random(str('hugs anime'))
+gif_kiss = tenor.random(str('kiss anime'))
+gif_poke = tenor.random(str('poke anime'))
+gif_pats = tenor.random(str('pats anime'))
 
 @bot.event
 async def on_ready():
@@ -55,7 +62,8 @@ async def reload(ctx, extension):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         retry_after = str(datetime.timedelta(seconds=error.retry_after)).split('.')[0]
-        await ctx.send(f'**Вы устали! Приходите через {retry_after}**', delete_after=time_10s)
+        await ctx.channel.purge(limit=1)
+        await ctx.send(f'**Вы устали! Приходите через {retry_after}**', delete_after=time_5s)
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):

@@ -1,4 +1,5 @@
-import discord, datetime, pytz
+import discord, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
@@ -10,9 +11,9 @@ class help(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"help load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"help load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.group(name="help", aliases=["хелп", "помощь"], invoke_without_command=True)
+    @commands.group(name="help", aliases=aliaces_help, invoke_without_command=True)
     @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
     async def help(self, ctx):
         cci = ctx.channel.id
@@ -32,7 +33,7 @@ class help(commands.Cog):
             await ctx.send(embed=emb)
         else:
             await ctx.author.purge(limit=1)
-            await ctx.send("Ошибка, вы пишете не в том канале", delete_after=time_10s)
+            await ctx.send(error_message, delete_after=time_10s)
 
     @help.command()
     @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)

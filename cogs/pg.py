@@ -1,4 +1,5 @@
-import discord, datetime, pytz
+import discord, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from random import shuffle
 from typing import Union
@@ -16,9 +17,9 @@ class pg(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"pg load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"pg load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command(aliases=['pass', 'пароль'])
+    @commands.command(aliases=aliaces_pg)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def password(self, ctx, type=None, length: Union[int]=None):
@@ -49,7 +50,7 @@ class pg(commands.Cog):
                         f'{ctx.author.mention}  \nОшибка, доступны только 3 уровня сложности: `1` , `2` , `3` , и длина пароля от `8` до `32` символов', delete_after=time_10s)
             else:
                 await ctx.channel.purge(limit=1)
-                await ctx.send("Ошибка, вы пишете не в том канале", delete_after=time_10s)
+                await ctx.send(error_message, delete_after=time_10s)
 
 def setup(bot):
     bot.add_cog(pg(bot))

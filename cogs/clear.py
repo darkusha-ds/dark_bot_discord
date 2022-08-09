@@ -1,4 +1,5 @@
-import discord, datetime, pytz
+import discord, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
@@ -11,7 +12,7 @@ class clear(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"clear load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"clear load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command()
     @commands.has_permissions(administrator=True)

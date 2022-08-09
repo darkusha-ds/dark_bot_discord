@@ -1,4 +1,5 @@
-import discord, random, datetime, pytz
+import discord, random, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
@@ -11,9 +12,9 @@ class kill(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"kill load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}")
+        await channel.send(f"kill load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command(name="kill", aliases=["убить", "похоронить"])
+    @commands.command(name="kill", aliases=aliaces_kill)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def kill(self, ctx, *, member: discord.Member = None):
@@ -32,7 +33,7 @@ class kill(commands.Cog):
                     await ctx.send(random.choice(phrazes.kill).format(mam, mum))
         else:
             await ctx.channel.purge(limit=1)
-            await ctx.send("Ошибка, вы пишете не в том канале", delete_after=time_10s)
+            await ctx.send(error_message, delete_after=time_10s)
 
 def setup(bot):
     bot.add_cog(kill(bot))
