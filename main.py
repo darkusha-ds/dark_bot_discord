@@ -5,12 +5,12 @@ from config import *
 from settings import *
 
 # Дьяволенок v1
-# pref = D_v1["prefix"]
-# tok = D_v1["token"]
+pref = D_v1["prefix"]
+tok = D_v1["token"]
 
 # Дьяволенок v2
-pref = D_v2["prefix"]
-tok = D_v2["token"]
+# pref = D_v2["prefix"]
+# tok = D_v2["token"]
 
 tenor = TenGiphPy.Tenor(token=teno["token"])
 bot = commands.Bot(command_prefix=pref)
