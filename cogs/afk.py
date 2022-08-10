@@ -4,6 +4,8 @@ from discord.ext import commands
 from main import *
 from settings import *
 
+afk_pref = "[AFK]"
+
 class afk(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -29,7 +31,7 @@ class afk(commands.Cog):
                         description=f'Пример: {pref}afk **причина**'
                 ), delete_after=time_5s)
             else:
-                nick = f"[AFK] {can}"
+                nick = f"{afk_pref} {can}"
                 await ctx.author.edit(nick=nick)
                 await ctx.send(f'{cam} ушел в афк по причине ***{reason}***')
         else:
@@ -42,9 +44,11 @@ class afk(commands.Cog):
         # mam = ctx.author.mention
         # mum = member.mention
         cci = ctx.channel.id
+        current_nick = ctx.author.nick
+        old_nick = current_nick.replace(afk_pref,"")
         if cci in channels:
             nick = ctx.author.name
-            await ctx.author.edit(nick=nick)
+            await ctx.author.edit(nick=old_nick)
             await ctx.send(f'{ctx.author.mention} вышел из АФК')
         else:
             await ctx.channel.purge(limit=1)
