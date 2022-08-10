@@ -1,4 +1,3 @@
-from re import T
 import discord, json, requests, random, pytz
 from datetime import datetime as dt
 from discord.ext import commands
