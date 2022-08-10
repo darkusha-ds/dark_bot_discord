@@ -14,13 +14,9 @@ class prikl(commands.Cog):
         await channel.send(f"prikl load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command()
-    async def prikl(self, ctx, *, chan, text = None):
-        if chan == 1: #smer
-            channel = bot.get_channel(939864015037935760)
-            await channel.send(text)
-        elif chan == 2: #test server
-            channel = bot.get_channel(726482240506298378)
-            await channel.send(text)
+    async def prikl(self, ctx, *, text = None):
+        channel = bot.get_channel(791811830216523797)
+        await channel.send(text)
 
 def setup(bot):
     bot.add_cog(prikl(bot))
