@@ -6,7 +6,7 @@ D_v1 = {
 D_v2 = {
     'token': 'OTg4ODU5NjE5MjMxMjc3MTE2.GgjFQH.xtrbmItfz9BwtCTj5PWSgdkPr9QliVWHqvuAJU',
     'bot': 'Дьяволенок 2.0',
-    'prefix': '%'
+    'prefix': ''
 }
 teno = {
     'token': '73TWZVR3M7AL'
