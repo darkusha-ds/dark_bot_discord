@@ -1,4 +1,4 @@
-import discord, pytz
+import discord, pytz, random
 from datetime import datetime as dt
 from discord.ext import commands
 from main import *
@@ -19,7 +19,7 @@ class clear(commands.Cog):
     async def clear(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount)
         await ctx.send(
-            embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=0x0c0c0c), delete_after=time_10s)
+            embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=discord.Colour.random()), delete_after=time_10s)
 
 def setup(bot):
     bot.add_cog(clear(bot))

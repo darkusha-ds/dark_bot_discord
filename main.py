@@ -1,6 +1,7 @@
 import discord, os, datetime, pytz, TenGiphPy, random
 from discord.ext import commands
 from discord_together import DiscordTogether
+from datetime import datetime as dt
 from config import *
 from settings import *
 
@@ -16,20 +17,13 @@ tenor = TenGiphPy.Tenor(token=teno["token"])
 bot = commands.Bot(command_prefix=pref)
 bot.remove_command("help")
 
-# gifurl for commands
-gif_hits = tenor.random(str('hits anime'))
-gif_hugs = tenor.random(str('hugs anime'))
-gif_kiss = tenor.random(str('kiss anime'))
-gif_poke = tenor.random(str('poke anime'))
-gif_pats = tenor.random(str('pats anime'))
-
 @bot.event
 async def on_ready():
     bot.togetherControl = await DiscordTogether(tok)
     channel = bot.get_channel(load_bot)
     print("We have logged in as {0.user}".format(bot))
     await channel.send(f"=====================================\n"
-                       "{0.user} ".format(bot) + f"load {datetime.datetime.now(pytz.timezone('Asia/Yekaterinburg')).strftime('%d-%m-%Y at %H:%M:%S')}"
+                       "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}"
                        f"\n=====================================")
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'{pref}help'))
 
@@ -39,6 +33,7 @@ async def load(ctx, extension):
         bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
+        await ctx.channel.purge(limit=1)
         await ctx.send("You aren't bot creator", delete_after=time_5s)
 
 @bot.command()
@@ -47,6 +42,7 @@ async def unload(ctx, extension):
         bot.unload_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
+        await ctx.channel.purge(limit=1)
         await ctx.send("You aren't bot creator", delete_after=time_5s)
 
 @bot.command()
@@ -56,6 +52,7 @@ async def reload(ctx, extension):
         bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
+        await ctx.channel.purge(limit=1)
         await ctx.send("You aren't bot creator", delete_after=time_5s)
 
 @bot.event

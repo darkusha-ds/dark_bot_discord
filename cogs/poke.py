@@ -5,6 +5,8 @@ from main import *
 from settings import *
 from phrazes import *
 
+gif_poke = tenor.random(str('poke anime'))
+
 class poke(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

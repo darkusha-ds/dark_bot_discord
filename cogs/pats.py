@@ -6,6 +6,8 @@ from main import *
 from settings import *
 from phrazes import *
 
+gif_pats = tenor.random(str('pats anime'))
+
 class pats(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

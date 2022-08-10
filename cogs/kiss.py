@@ -5,6 +5,8 @@ from main import *
 from settings import *
 from phrazes import *
 
+gif_kiss = tenor.random(str('kiss anime'))
+
 class kiss(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
