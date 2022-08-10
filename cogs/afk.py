@@ -15,7 +15,7 @@ class afk(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send(f"afk load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command(pass_context=True)
+    @commands.command(name='afk', aliases=aliaces_afk, pass_context=True)
     @commands.has_any_role(*roles)
     @commands.cooldown(1, 1200, commands.BucketType.user)
     async def afk(self, ctx):
@@ -30,7 +30,7 @@ class afk(commands.Cog):
             await ctx.send(error_message, delete_after=time_10s)
     
 
-    @commands.command(pass_context=True)
+    @commands.command(name='un_afk', aliases=aliaces_unafk, pass_context=True)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def un_afk(self, ctx):

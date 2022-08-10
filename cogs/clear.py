@@ -14,7 +14,7 @@ class clear(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send(f"clear load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command()
+    @commands.command(name='clear', aliases=aliaces_clear)
     @commands.has_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
         await ctx.channel.purge(limit=amount)

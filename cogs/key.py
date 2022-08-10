@@ -13,7 +13,7 @@ class key(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send(f"key load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command()
+    @commands.command(name='key', aliases=aliaces_key)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def key(self, ctx):
