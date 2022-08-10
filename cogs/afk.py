@@ -37,6 +37,7 @@ class afk(commands.Cog):
         else:
             await ctx.send(error_message, delete_after=time_10s)
     
+
     @commands.command(pass_context=True)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
@@ -45,11 +46,13 @@ class afk(commands.Cog):
         # mum = member.mention
         cci = ctx.channel.id
         current_nick = ctx.author.nick
-        old_nick = current_nick.replace(afk_pref,"")
         if cci in channels:
-            nick = ctx.author.name
-            await ctx.author.edit(nick=old_nick)
-            await ctx.send(f'{ctx.author.mention} вышел из АФК')
+            if afk_pref in current_nick:
+                old_nick = current_nick.replace(afk_pref,"")
+                await ctx.author.edit(nick=old_nick)
+                await ctx.send(f'{ctx.author.mention} вышел из АФК')
+            else:
+                await ctx.send('Вы не были в режиме АФК')
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
