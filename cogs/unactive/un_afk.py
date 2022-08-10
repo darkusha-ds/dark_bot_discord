@@ -21,7 +21,7 @@ class un_afk(commands.Cog):
         # mum = member.mention
         cci = ctx.channel.id
         if cci in channels:
-            nick = ctx.author.name
+            nick = ctx.author.display_name(6)
             await ctx.author.edit(nick=nick)
             await ctx.send(f'{ctx.author.mention} вышел из АФК')
         else:
