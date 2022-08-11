@@ -16,7 +16,7 @@ class roles(commands.Cog):
     @commands.command(name='rols', aliases=aliaces_roles)
     async def get_roles_id(self, ctx):
         if ctx.author.id in admins_id:
-            guild = bot.get_guild(870237741739302912)
+            guild = bot.get_guild(763632193150779412)
             await ctx.send(guild.roles)
         else:
             await ctx.channel.purge(limit=1)
