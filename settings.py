@@ -20,6 +20,7 @@ error_ctx_user = "Ошибка, вы не можете использовать 
 error_message = "Ошибка, вы пишете не в том канале"
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
+comm_example = 'example'
 comm_hit = 'hits'
 comm_hugs = 'hugs'
 comm_kill = 'kill'
@@ -73,6 +74,7 @@ roles = [
 # aliaces for commands
 aliaces_snowball = ["снежок", "snow"]
 aliaces_servers = ["active", "servs"]
+aliaces_example = []
 aliaces_logout = ["выйти"]
 aliaces_clear = ["очистить", "удалить"]
 aliaces_films = ["film", "youtube", "yt", "фильм", "ютуб"]
