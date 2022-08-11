@@ -28,7 +28,7 @@ class kill(commands.Cog):
             else:
                 if member == ctx.author:
                     await ctx.channel.purge(limit=1)
-                    await ctx.send("Ошибка, вы не можете использовать эту команду против себя", delete_after=time_10s)
+                    await ctx.send(error_ctx_user, delete_after=time_10s)
                 else:
                     embed = discord.Embed(
                         color=discord.Colour.random(),
