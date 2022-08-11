@@ -22,6 +22,7 @@ region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
 comm_hit = 'hits'
 comm_hugs = 'hugs'
+comm_kill = 'kill'
 comm_kiss = 'kiss'
 comm_pats = 'pats'
 comm_poke = 'poke'
