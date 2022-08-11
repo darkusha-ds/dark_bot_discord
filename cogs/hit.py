@@ -5,8 +5,6 @@ from main import *
 from settings import *
 from phrazes import *
 
-gif_hits = tenor.random(str('hits anime'))
-
 class hit(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -32,7 +30,7 @@ class hit(commands.Cog):
                     color=discord.Colour.random(),
                     description=random.choice(phrazes.hit).format(mam, mum)
                 )
-                embed.set_image(url=gif_hits)
+                embed.set_image(url=tenor.random(str('hits anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
