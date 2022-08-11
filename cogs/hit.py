@@ -12,7 +12,7 @@ class hit(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"hit load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send(f"{comm_hit} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name='hit', aliases=aliaces_hit)
     @commands.has_any_role(*roles)
@@ -30,7 +30,7 @@ class hit(commands.Cog):
                     color=discord.Colour.random(),
                     description=random.choice(phrazes.hit).format(mam, mum)
                 )
-                embed.set_image(url=tenor.random(str('hits anime')))
+                embed.set_image(url=tenor.random(str(f'{comm_hit} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)

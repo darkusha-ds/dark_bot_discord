@@ -20,6 +20,11 @@ error_ctx_user = "Ошибка, вы не можете использовать 
 error_message = "Ошибка, вы пишете не в том канале"
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
+comm_hit = 'hits'
+comm_hugs = 'hugs'
+comm_kiss = 'kiss'
+comm_pats = 'pats'
+comm_poke = 'poke'
 
 servers_id = [
     726477611189927968,        # test server

@@ -5,8 +5,6 @@ from main import *
 from settings import *
 from phrazes import *
 
-gif_pats = tenor.random(str('pats anime'))
-
 class pats(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -14,7 +12,7 @@ class pats(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"pats load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send(f"{comm_pats} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name='pat', aliases=aliaces_pats)
     @commands.has_any_role(*roles)
@@ -32,7 +30,7 @@ class pats(commands.Cog):
                     color=discord.Colour.random(),
                     description=random.choice(phrazes.pats).format(mam, mum)
                 )
-                embed.set_image(url=gif_pats)
+                embed.set_image(url=tenor.random(str(f'{comm_pats} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)

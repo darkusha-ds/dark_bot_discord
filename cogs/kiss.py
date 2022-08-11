@@ -5,8 +5,6 @@ from main import *
 from settings import *
 from phrazes import *
 
-gif_kiss = tenor.random(str('kiss anime'))
-
 class kiss(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -14,7 +12,7 @@ class kiss(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"kiss load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send(f"{comm_kiss} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name="kiss", aliaces=aliaces_kiss)
     @commands.has_any_role(*roles)
@@ -32,7 +30,7 @@ class kiss(commands.Cog):
                     color=discord.Colour.random(),
                     description=random.choice(phrazes.kiss).format(mam, mum)
                 )
-                embed.set_image(url=gif_kiss)
+                embed.set_image(url=tenor.random(str(f'{comm_kiss} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
