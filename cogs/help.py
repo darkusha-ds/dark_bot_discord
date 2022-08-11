@@ -23,7 +23,7 @@ class help(commands.Cog):
                 colour=(discord.Colour.random())
             )
             emb.add_field(
-                name='**Основные**', value=f"`{pref}тык` `{pref}убить` `{pref}снежок` `{pref}обнять` `{pref}умереть` `{pref}погладить` `{pref}поцеловать` `{pref}afk` `{pref}exit` `{pref}зайти` `{pref}выйти`", inline=False)
+                name='**Основные**', value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти`", inline=False)
             emb.add_field(
                 name='**Приколюшки**', value=f"`{pref}password` `{pref}key` `{pref}шар` `{pref}ютуб`", inline=False
             )
