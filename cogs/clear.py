@@ -15,11 +15,14 @@ class clear(commands.Cog):
         await channel.send(f"clear load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name='clear', aliases=aliaces_clear)
-    @commands.has_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
-        await ctx.channel.purge(limit=amount)
-        await ctx.send(
-            embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=discord.Colour.random()), delete_after=time_10s)
+        if ctx.author.id in admins_id:
+            await ctx.channel.purge(limit=amount)
+            await ctx.send(
+                embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=discord.Colour.random()), delete_after=time_10s)
+        else:
+            await ctx.channel.purge(limit=1)
+            await ctx.send("You aren't bot admin", delete_after=time_5s)
 
 def setup(bot):
     bot.add_cog(clear(bot))
