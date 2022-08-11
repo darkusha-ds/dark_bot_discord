@@ -6,6 +6,7 @@ channels = [
     939862153882648626,        # bots on smert
     939863946477846549,        # audit on smert
     870241377114533899,        # bots on DoDoshka 2.0
+    784373915215986699,        # bots on Ksusha's server
 ]
 
 # channel, where I can see bot time load
@@ -33,6 +34,7 @@ servers_id = [
     791801009638342696,        # midgard
     939858722824548372,        # smert
     870237741739302912,        # DoDoshka 2.0
+    763632193150779412,        # Ksusha's server
 ]
 
 admins_id = [
@@ -41,6 +43,7 @@ admins_id = [
     579388394141122560,        # I_V1K1NG_I
     416248161431191552,        # R.I.P
     562622728050311191,        # DoDo_Arcee
+    769786257815240714,        # Садок Судей
 ]
 
 # roles from servers
