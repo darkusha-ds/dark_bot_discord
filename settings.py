@@ -6,6 +6,7 @@ channels = [
     939862153882648626,        # bots on smert
     939863946477846549,        # audit on smert
     870241377114533899,        # bots on DoDoshka 2.0
+    784049510602244117,        # commands on Ksusha's server
     784373915215986699,        # bots on Ksusha's server
 ]
 
