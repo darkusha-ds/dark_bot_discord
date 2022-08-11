@@ -15,12 +15,8 @@ class roles(commands.Cog):
 
     @commands.command(name='rols', aliases=aliaces_roles)
     async def get_roles_id(self, ctx):
-        if ctx.author.id in admins_id:
-            guild = bot.get_guild(763632193150779412)
-            await ctx.send(guild.roles)
-        else:
-            await ctx.channel.purge(limit=1)
-            await ctx.send("You aren't bot admin", delete_after=time_5s)
+        guild = bot.get_guild(763632193150779412)
+        await ctx.send(guild.roles)
 
 def setup(bot):
     bot.add_cog(roles(bot))
