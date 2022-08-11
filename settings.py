@@ -75,6 +75,8 @@ roles = [
     939858722824548372,        # everyone
     # DoDoshka 2.0
     870237741739302912,        # everyone
+    # Ksusha's server
+    763632193150779412,        # everyone
 ]
 
 # aliaces for commands
