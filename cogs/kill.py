@@ -12,7 +12,7 @@ class kill(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"kill load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send(f"{comm_kill} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name="kill", aliases=aliaces_kill)
     @commands.has_any_role(*roles)
@@ -30,7 +30,12 @@ class kill(commands.Cog):
                     await ctx.channel.purge(limit=1)
                     await ctx.send("Ошибка, вы не можете использовать эту команду против себя", delete_after=time_10s)
                 else:
-                    await ctx.send(random.choice(phrazes.kill).format(mam, mum))
+                    embed = discord.Embed(
+                        color=discord.Colour.random(),
+                        description=random.choice(phrazes.kill).format(mam, mum)
+                    )
+                    embed.set_image(url=tenor.random(str(f'{comm_kill} anime')))
+                    await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
