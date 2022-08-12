@@ -29,6 +29,8 @@ comm_kill = 'kill'
 comm_kiss = 'kiss'
 comm_pats = 'pats'
 comm_poke = 'poke'
+logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
+logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
 
 servers_id = [
     726477611189927968,        # test server
