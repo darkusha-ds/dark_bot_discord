@@ -19,19 +19,6 @@ class help(commands.Cog):
     async def help(self, ctx):
         cci = ctx.channel.id
         if cci in channels:
-            # emb = discord.Embed(
-            #     title='Навигация по командам :clipboard:',
-            #     colour=(discord.Colour.random())
-            # )
-            # emb.add_field(
-            #     name='**Основные**', value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти`", inline=False)
-            # emb.add_field(
-            #     name='**Приколюшки**', value=f"`{pref}password` `{pref}key` `{pref}шар` `{pref}ютуб`", inline=False
-            # )
-            # emb.add_field(
-            #     name='**Модерация**', value=f"`{pref}clear`", inline=False
-            # )
-            # await ctx.send(embed=emb)
             embed = discord.Embed(
                 title="Доступные команды:",
                 description=f"Вы можете получить детальную справку по каждой команде указав название. Например: `{pref}хелп инфо` (пока в разработке)",
@@ -58,6 +45,12 @@ class help(commands.Cog):
             embed.add_field(
                 name=f"🔧  Утилиты ({pref}хелп Утилиты)",
                 value=f"`{pref}password` `{pref}key` `{pref}ютуб`",
+                inline=False
+            )
+
+            embed.add_field(
+                name=f":man_technologist:  Для создателя)",
+                value=f"`{pref}password` `{pref}servers`",
                 inline=False
             )
 

@@ -18,7 +18,7 @@ class servers(commands.Cog):
     async def servers(self, ctx):
         activeservers = bot.guilds
         for guild in activeservers:
-            await ctx.send(f"{guild.name}; id: {guild.id}")
+            await ctx.send(f"{guild.name} \n id: {guild.id}")
 
 def setup(bot):
     bot.add_cog(servers(bot))
