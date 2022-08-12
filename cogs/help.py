@@ -39,7 +39,7 @@ class help(commands.Cog):
             )
             embed.add_field(
                 name=f"😄  Весёлое ({pref}хелп Весёлое)",
-                value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти` `{pref}шар`",
+                value=f"`{pref}afk` `{pref}шар` `{pref}hit` `{pref}hug` `{pref}kill` `{pref}kiss` `{pref}зайти` `{pref}выйти` `{pref}pat` `{pref}poke` `{pref}rip` `{pref}snowball`",
                 inline=False
             )
             embed.add_field(
