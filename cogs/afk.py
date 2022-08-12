@@ -17,13 +17,14 @@ class afk(commands.Cog):
 
     @commands.command(name='afk', aliases=aliaces_afk, pass_context=True)
     @commands.has_any_role(*roles)
-    @commands.cooldown(1, 600, commands.BucketType.user)
+    @commands.cooldown(1, 300, commands.BucketType.user)
     async def afk(self, ctx):
         current_nick = ctx.author.nick
         if "[AFK]" in current_nick: old_nick = current_nick.replace("[AFK]", "") # all letters in English
         if "[AFК]" in current_nick: old_nick = current_nick.replace("[AFК]", "") # K in Russian
         if "[АFK]" in current_nick: old_nick = current_nick.replace("[АFK]", "") # A in Russian
         if "[АFК]" in current_nick: old_nick = current_nick.replace("[АFК]", "") # A and K in Russian
+        
         cci = ctx.channel.id
         if cci in channels:
             if "[AFK]" in current_nick or "[AFК]" in current_nick or "[АFK]" in current_nick or "[АFК]" in current_nick:
