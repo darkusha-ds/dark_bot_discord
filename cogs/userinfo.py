@@ -15,8 +15,8 @@ class userinfo(commands.Cog):
         await channel.send(f"{comm_userinfo} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
     @commands.command(name=comm_userinfo, aliases=aliaces_userinfo)
-    # @commands.has_any_role(*roles)
-    # @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
+    @commands.has_any_role(*roles)
+    @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def userinfo(self, ctx, *, user: discord.Member = None):
         if user is None:
             user = ctx.author
