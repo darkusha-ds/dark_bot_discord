@@ -17,7 +17,7 @@ class afk(commands.Cog):
 
     @commands.command(name='afk', aliases=aliaces_afk, pass_context=True)
     @commands.has_any_role(*roles)
-    # @commands.cooldown(1, 600, commands.BucketType.user)
+    @commands.cooldown(1, 600, commands.BucketType.user)
     async def afk(self, ctx):
         current_nick = ctx.author.nick
         if "[AFK]" in current_nick: old_nick = current_nick.replace("[AFK]", "") # all letters in English
@@ -32,7 +32,7 @@ class afk(commands.Cog):
             else:
                 nick = f"{afk_pref} {current_nick}"
                 await ctx.author.edit(nick=nick)
-                await ctx.send(f'{ctx.author.mention} ушел в АФК')
+                await ctx.send(f'{current_nick} ушел в АФК')
         else:
             await ctx.send(error_message, delete_after=time_10s)
 
