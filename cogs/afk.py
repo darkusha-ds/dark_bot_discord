@@ -32,7 +32,7 @@ class afk(commands.Cog):
             else:
                 nick = f"{afk_pref} {current_nick}"
                 await ctx.author.edit(nick=nick)
-                await ctx.send(f'{current_nick} ушел в АФК')
+                await ctx.send(f'{ctx.author.mention} ушел в АФК')
         else:
             await ctx.send(error_message, delete_after=time_10s)
 
