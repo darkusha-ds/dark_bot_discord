@@ -29,7 +29,7 @@ class help(commands.Cog):
 
             embed.add_field(
                 name=f"📋  Информация ({pref}хелп Информация)",
-                value=f"`{pref}help`",
+                value=f"`{pref}help` `{pref}userinfo`",
                 inline=False
             )
             embed.add_field(
