@@ -21,7 +21,6 @@ class afk(commands.Cog):
     async def afk(self, ctx):
         current_nick = ctx.author.nick
         old_nick = current_nick.replace("[AFK]", "").replace("[AFК]", "").replace("[АFK]", "").replace("[АFК]", "")
-        
         cci = ctx.channel.id
         if cci in channels:
             if "[AFK]" in current_nick or "[AFК]" in current_nick or "[АFK]" in current_nick or "[АFК]" in current_nick:
