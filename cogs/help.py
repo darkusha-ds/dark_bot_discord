@@ -52,14 +52,14 @@ class help(commands.Cog):
             )
             embed.add_field(
                 name=f"😄  Весёлое ({pref}хелп Весёлое)",
-                value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти`",
+                value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти` `{pref}шар`",
                 inline=False
             )
-            # embed.add_field(
-            #     name=f"🔧  Утилиты ({pref}хелп Утилиты)",
-            #     value=f"`{pref} Value`",
-            #     inline=False
-            # )
+            embed.add_field(
+                name=f"🔧  Утилиты ({pref}хелп Утилиты)",
+                value=f"`{pref}password` `{pref}key` `{pref}ютуб`",
+                inline=False
+            )
 
             embed.set_footer(
                 text="Dark Angel © 2022",
