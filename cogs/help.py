@@ -44,22 +44,22 @@ class help(commands.Cog):
                 name=f"📋  Информация ({pref}хелп Информация)",
                 value=f"`{pref}help`",
                 inline=False
-                )
+            )
             embed.add_field(
                 name=f"🛡️  Модерирование ({pref}хелп Модерирование)",
                 value=f"`{pref}clear`",
                 inline=False
-                )
+            )
             embed.add_field(
                 name=f"😄  Весёлое ({pref}хелп Весёлое)",
                 value=f"`{pref}pat` `{pref}kill` `{pref}snowball` `{pref}hug` `{pref}rip` `{pref}poke` `{pref}kiss` `{pref}afk` `{pref}зайти` `{pref}выйти` `{pref}afk` `{pref}un_afk` `{pref}hit` `{pref}выйти`",
                 inline=False
-                )
-            embed.add_field(
-                name=f"🔧  Утилиты ({pref}хелп Утилиты)",
-                value=f"`{pref} Value`",
-                inline=False
-                )
+            )
+            # embed.add_field(
+            #     name=f"🔧  Утилиты ({pref}хелп Утилиты)",
+            #     value=f"`{pref} Value`",
+            #     inline=False
+            # )
 
             embed.set_footer(
                 text="Dark Angel © 2022",
