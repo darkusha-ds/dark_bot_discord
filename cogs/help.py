@@ -50,7 +50,7 @@ class help(commands.Cog):
 
             embed.add_field(
                 name=f":man_technologist:  Для создателя)",
-                value=f"`{pref}password` `{pref}servers`",
+                value=f"`{pref}servers`",
                 inline=False
             )
 
