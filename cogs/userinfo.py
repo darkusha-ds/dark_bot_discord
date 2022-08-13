@@ -17,19 +17,20 @@ class userinfo(commands.Cog):
     @commands.command(name=comm_userinfo, aliases=aliaces_userinfo)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
-    async def userinfo(self, ctx, *, user: discord.Member = None):
-        if user is None:
-            user = ctx.author
-        date_format = "%a, %d %b %Y %I:%M %p"
-        embed = discord.Embed(color=0xdfa3ff, description=user.mention)
-        embed.set_author(name=str(user), icon_url=user.avatar_url)
-        embed.set_thumbnail(url=user.avatar_url)
-        embed.add_field(name="Joined", value=user.joined_at.strftime(date_format))
-        embed.add_field(name="Registered", value=user.created_at.strftime(date_format))
-        perm_string = ', '.join([str(p[0]).replace("_", " ").title() for p in user.guild_permissions if p[1]])
-        # embed.add_field(name="Guild permissions", value=perm_string, inline=False)
-        embed.set_footer(text='ID: ' + str(user.id))
-        return await ctx.send(embed=embed)
+    async def userinfo(self, ctx, member: discord.Member = None):
+        if member is None:
+            member = ctx.author
+        roles = [role for role in member.roles]
+        embed = discord.Embed(title=f"Info {member.name}")
+        embed.set_thumbnail(url=member.avatar_url)
+        embed.add_field(name="ID", value=member.id, inline=True)
+        embed.add_field(name="Nickname", value=member.display_name, inline=True)
+        embed.add_field(name="Created at", value=member.created_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+        embed.add_field(name="Joined at", value=member.joined_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+        # embed.add_field(name="Roles", value="".join(role.mention for role in roles), inline=True)
+        embed.add_field(name="Top role", value=member.top_role.mention, inline=True)
+        embed.add_field(name="Bot?", value=member.bot, inline=True)
+        await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(userinfo(bot))
