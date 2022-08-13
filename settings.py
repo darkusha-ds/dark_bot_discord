@@ -23,7 +23,7 @@ error_message = "Ошибка, вы пишете не в том канале"
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
 comm_example = 'example'
-comm_userinfo = 'userinfo'
+comm_userinfo = 'user'
 comm_server = 'server'
 comm_hit = 'hits'
 comm_hugs = 'hugs'
@@ -85,7 +85,7 @@ roles = [
 
 # aliaces for commands
 aliaces_snowball = ["снежок", "snow"]
-aliaces_userinfo = []
+aliaces_userinfo = ['юзер', 'userinfo']
 aliaces_servers = ["active", "servs"]
 aliaces_example = []
 aliaces_server = ['сервер']
