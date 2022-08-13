@@ -1,5 +1,4 @@
-import discord, pytz
-from datetime import datetime as dt
+import discord
 from discord.ext import commands
 from random import shuffle
 from typing import Union
@@ -17,7 +16,7 @@ class pg(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"pg load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
     @commands.command(aliases=aliaces_pg)
     @commands.has_any_role(*roles)

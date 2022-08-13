@@ -1,5 +1,4 @@
-import uuid, pytz
-from datetime import datetime as dt
+import uuid
 from discord.ext import commands
 from main import *
 from settings import *
@@ -11,7 +10,7 @@ class key(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"key load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
     @commands.command(name='key', aliases=aliaces_key)
     @commands.has_any_role(*roles)

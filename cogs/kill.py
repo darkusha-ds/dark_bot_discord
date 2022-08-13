@@ -1,5 +1,4 @@
-import discord, random, pytz
-from datetime import datetime as dt
+import discord, random
 from discord.ext import commands
 from main import *
 from settings import *
@@ -12,7 +11,7 @@ class kill(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send(f"{comm_kill} load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+        await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
     @commands.command(name="kill", aliases=aliaces_kill)
     @commands.has_any_role(*roles)
