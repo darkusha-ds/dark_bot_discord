@@ -14,7 +14,7 @@ class prikl(commands.Cog):
 
     @commands.command()
     async def prikl(self, ctx, *, text = None):
-        channel = bot.get_channel(791811830216523797)
+        channel = bot.get_channel(870241377114533899)
         await channel.send(text)
 
 def setup(bot):
