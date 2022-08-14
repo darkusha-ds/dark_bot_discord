@@ -69,6 +69,8 @@ time_20s = 20.0        # def_time
 time_120s = 120.0      # two_mins
 error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
 error_message = "Ошибка, вы пишете не в том канале"
+error_perms = "У вас не достаточно прав на использование этой команды"
+error_member = "Пользователь не найден"
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
 logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'

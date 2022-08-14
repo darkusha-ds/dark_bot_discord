@@ -24,40 +24,40 @@ class Moderation(commands.Cog):
             await ctx.send("You aren't bot admin", delete_after=time_5s)
     
 
-    @commands.command(name=comm_ban, aliaces=aliaces_ban)
+    @commands.command(name=comm_unban, aliaces=aliaces_unban)
     @commands.has_permissions(ban_members=True)
-    async def unban(self, ctx, userid: int, reason='not specified'):
+    async def unban(self, ctx, userid: int, reason='не указана'):
         user = await self.bot.fetch_user(userid)
         try:
             await ctx.guild.unban(user)
-            await ctx.send(f"{user} has been unbanned. Reason: {reason}")
+            await ctx.send(f"{user} был разбанен по причине: {reason}")
             return
         except:
-            return await ctx.send(f"The user {user} is not banned!", delete_after=5)
+            return await ctx.send(f"{user} не забанен!", delete_after=time_5s)
 
     @unban.error
     async def unban_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             await ctx.message.delete()
-            await ctx.send("Not enough permissions to use this command", delete_after=5)
+            await ctx.send(error_perms, delete_after=time_5s)
 
 
-    @commands.command(name=comm_unban, aliaces=aliaces_unban)
+    @commands.command(name=comm_ban, aliaces=aliaces_ban)
     @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, user: discord.Member = None, *, reason='not specified'):
+    async def ban(self, ctx, user: discord.Member = None, *, reason='не указана'):
         guild = ctx.guild
-        await ctx.send(f"{ctx.author.display_name} banned a user {user.display_name}. Reason: {reason}")
+        await ctx.send(f"{ctx.author.display_name} забанил {user.display_name}, по причине: {reason}")
         await guild.ban(user)
 
     @ban.error
     async def ban_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             await ctx.message.delete()
-            await ctx.send("Not enough permissions to use this command", delete_after=5)
+            await ctx.send(error_perms, delete_after=time_5s)
             return
         if isinstance(error, commands.MemberNotFound):
             await ctx.message.delete()
-            await ctx.send("Member not found", delete_after=5)
+            await ctx.send(error_member, delete_after=time_5s)
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
