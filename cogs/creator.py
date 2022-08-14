@@ -25,6 +25,7 @@ class creator(commands.Cog):
         await ctx.send(guild.roles)
     
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def prikl(self, ctx, *, text = None):
         channel = bot.get_channel(870241377114533899)
         await channel.send(text)
