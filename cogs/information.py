@@ -32,7 +32,7 @@ class Information(commands.Cog):
             )
             embed.add_field(
                 name=f"🛡️  Модерирование ({pref}хелп Модерирование)",
-                value=f"`{pref}clear`",
+                value=f"`{pref}clear` `{pref}ban` `{pref}unban` ",
                 inline=False
             )
             embed.add_field(

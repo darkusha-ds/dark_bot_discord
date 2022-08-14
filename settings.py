@@ -141,7 +141,13 @@ aliaces_rip = ["умереть"]
 comm_pg = 'password'
 aliaces_pg = ["pass", "пароль"]
 
+comm_ban = 'ban'
+aliaces_ban = ["бан", "забанить"]
+
+comm_unban = 'unban'
+aliaces_unban = ["разбан", "разбанить"]
+
 
 alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')
 numbers = list('1234567890')
-symbols = list('!@#$%^&*()_+~=[]}{:;/<>-')
+symbols = list('.,?!@#$%^&*()_+~"`=[]}{:;/<>-')
