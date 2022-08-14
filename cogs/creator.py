@@ -15,20 +15,33 @@ class creator(commands.Cog):
     @commands.command(name=comm_servers, aliaces=aliaces_servers)
     @commands.has_permissions(administrator=True)
     async def servers(self, ctx):
-        activeservers = bot.guilds
-        for guild in activeservers:
-            await ctx.send(f"{guild.name} \n id: {guild.id}")
+        if ctx.author.id in admins_id:
+            activeservers = bot.guilds
+            for guild in activeservers:
+                await ctx.send(f"{guild.name} \n id: {guild.id}")
+        else:
+            await ctx.channel.purge(limit=1)
+            await ctx.send("You aren't bot creator", delete_after=time_5s)
     
     @commands.command(name=comm_roles, aliases=aliaces_roles)
+    @commands.has_permissions(administrator=True)
     async def get_roles_id(self, ctx):
-        guild = bot.get_guild(763632193150779412)
-        await ctx.send(guild.roles)
+        if ctx.author.id in admins_id:
+            guild = bot.get_guild(763632193150779412)
+            await ctx.send(guild.roles)
+        else:
+            await ctx.channel.purge(limit=1)
+            await ctx.send("You aren't bot creator", delete_after=time_5s)
     
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def prikl(self, ctx, *, text = None):
-        channel = bot.get_channel(870241377114533899)
-        await channel.send(text)
+        if ctx.author.id in admins_id:
+            channel = bot.get_channel(870241377114533899)
+            await channel.send(text)
+        else:
+            await ctx.channel.purge(limit=1)
+            await ctx.send("You aren't bot creator", delete_after=time_5s)
 
 def setup(bot):
     bot.add_cog(creator(bot))
