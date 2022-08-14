@@ -10,30 +10,6 @@ channels = [
     784373915215986699,        # bots on Ksusha's server
 ]
 
-# channel, where I can see bot time load
-load_bot = 936239894009901166  # test_server
-
-# shortcuts
-time_5s = 5.0          # cogs_time
-time_10s = 10.0        # other_time
-time_20s = 20.0        # def_time
-time_120s = 120.0      # two_mins
-error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
-error_message = "Ошибка, вы пишете не в том канале"
-region = "Asia/Yekaterinburg"
-time_format = '%d-%m-%Y at %H:%M:%S'
-comm_example = 'example'
-comm_userinfo = 'user'
-comm_server = 'server'
-comm_hit = 'hits'
-comm_hugs = 'hugs'
-comm_kill = 'kill'
-comm_kiss = 'kiss'
-comm_pats = 'pats'
-comm_poke = 'poke'
-logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
-logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
-
 servers_id = [
     726477611189927968,        # test server
     791801009638342696,        # midgard
@@ -83,27 +59,89 @@ roles = [
     763632193150779412,        # everyone
 ]
 
-# aliaces for commands
+# channel, where I can see bot time load
+load_bot = 936239894009901166  # test_server
+
+# shortcuts
+time_5s = 5.0          # cogs_time
+time_10s = 10.0        # other_time
+time_20s = 20.0        # def_time
+time_120s = 120.0      # two_mins
+error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
+error_message = "Ошибка, вы пишете не в том канале"
+region = "Asia/Yekaterinburg"
+time_format = '%d-%m-%Y at %H:%M:%S'
+logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
+logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
+
+
+comm_snow = 'snowball'
 aliaces_snowball = ["снежок", "snow"]
+
+comm_userinfo = 'user'
 aliaces_userinfo = ['юзер', 'userinfo']
+
+comm_servers = 'servers'
 aliaces_servers = ["active", "servs"]
+
+comm_example = 'example'
 aliaces_example = []
+
+comm_server = 'server'
 aliaces_server = ['сервер']
-aliaces_logout = ["выйти"]
+
+comm_logout = 'logout'
+aliaces_logout = ["выйти", "exit"]
+
+comm_clear = 'clear'
 aliaces_clear = ["очистить", "удалить"]
+
+comm_films = 'films'
 aliaces_films = ["film", "youtube", "yt", "фильм", "ютуб"]
-aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл"]
-aliaces_roles = ["roles", "role"]
-aliaces_unafk = []
-aliaces_ball = ["шар"]
+
+comm_login = 'login'
+aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл", "join", "enter"]
+
+comm_roles = 'roles'
+aliaces_roles = ["rols", "role"]
+
+comm_ball = 'ball'
+aliaces_ball = ["шар", "8ball"]
+
+comm_help = 'help'
 aliaces_help = ["хелп", "помощь"]
+
+comm_hugs = 'hugs'
 aliaces_hugs = ["обнять", "hugs"]
+
+comm_kill = 'kill'
 aliaces_kill = ["убить", "похоронить"]
+
+comm_kiss = 'kiss'
 aliaces_kiss = ["чмок", "поцеловать", "засосать"]
+
+comm_pats = 'pats'
 aliaces_pats = ["погладить", "pats"]
+
+comm_poke = 'poke'
 aliaces_poke = ["тык", "тыкнуть"]
+
+comm_hit = 'hits'
 aliaces_hit = ["ударить", "стук"]
+
+comm_key = 'key'
 aliaces_key = []
+
+comm_afk = 'afk'
 aliaces_afk = ["афк"]
+
+comm_rip = 'rip'
 aliaces_rip = ["умереть"]
+
+comm_pg = 'password'
 aliaces_pg = ["pass", "пароль"]
+
+
+alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')
+numbers = list('1234567890')
+symbols = list('!@#$%^&*()_+~=[]}{:;/<>-')

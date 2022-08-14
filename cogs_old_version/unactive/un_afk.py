@@ -1,29 +1,33 @@
-import discord, random
+import discord, pytz
+from datetime import datetime as dt
 from discord.ext import commands
 from main import *
 from settings import *
-from phrazes import *
 
-class logout(commands.Cog):
+class un_afk(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
-        await channel.send('Module {} is loaded'.format(self.__class__.__name__))
+        await channel.send(f"un_afk load {dt.now(pytz.timezone(region)).strftime(time_format)}")
 
-    @commands.command(name=comm_logout, aliases=aliaces_logout)
+    @commands.command(pass_context=True)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
-    async def ex(self, ctx):
-        mam = ctx.author.mention  # тег автора
+    async def un_afk(self, ctx):
+        # mam = ctx.author.mention
+        # mum = member.mention
         cci = ctx.channel.id
         if cci in channels:
-            await ctx.send(random.choice(phrazes.logout).format(mam))
+            nick = ctx.author.display_name(6)
+            await ctx.author.edit(nick=nick)
+            await ctx.send(f'{ctx.author.mention} вышел из АФК')
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
 
+
 def setup(bot):
-    bot.add_cog(logout(bot))
+    bot.add_cog(un_afk(bot))

@@ -13,7 +13,7 @@ class clear(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
-    @commands.command(name='clear', aliases=aliaces_clear)
+    @commands.command(name=comm_clear, aliases=aliaces_clear)
     async def clear(self, ctx, amount: int):
         if ctx.author.id in admins_id:
             await ctx.channel.purge(limit=amount)

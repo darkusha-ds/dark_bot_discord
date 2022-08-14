@@ -4,7 +4,7 @@ from main import *
 from settings import *
 from phrazes import *
 
-class ball(commands.Cog):
+class pats(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -13,27 +13,27 @@ class ball(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
-    @commands.command(name=comm_ball, aliases=aliaces_ball)
+    @commands.command(name=comm_pats, aliases=aliaces_pats)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
-    async def magic_eight_ball(self, ctx, *, arg=None):
+    async def pat(self, ctx, member: discord.Member = None):
+        mam = ctx.author.mention
+        mum = member.mention
         cci = ctx.channel.id
         if cci in channels:
-            if arg is None:
+            if member == ctx.author:
                 await ctx.channel.purge(limit=1)
-                await ctx.send(
-                    embed=discord.Embed(
-                        color=0xff9900,
-                        title=f'{ctx.author.name}#{ctx.author.discriminator}, **укажите пользователя**',
-                        description=f'Пример: {pref}ball **вопрос**'
-                ), delete_after=time_5s)
+                await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
-                embed = discord.Embed(color=discord.Colour.random(), title='')
-                embed.add_field(name=arg, value=random.choice(phrazes.ball), inline=False)
+                embed = discord.Embed(
+                    color=discord.Colour.random(),
+                    description=random.choice(phrazes.pats).format(mam, mum)
+                )
+                embed.set_image(url=tenor.random(str(f'{comm_pats} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
 
 def setup(bot):
-    bot.add_cog(ball(bot))
+    bot.add_cog(pats(bot))

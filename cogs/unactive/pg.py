@@ -1,9 +1,11 @@
 import discord
 from discord.ext import commands
+from random import shuffle
+from typing import Union
 from main import *
 from settings import *
 
-class roles(commands.Cog):
+class pg(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -12,10 +14,7 @@ class roles(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
-    @commands.command(name='rols', aliases=aliaces_roles)
-    async def get_roles_id(self, ctx):
-        guild = bot.get_guild(763632193150779412)
-        await ctx.send(guild.roles)
+    
 
 def setup(bot):
-    bot.add_cog(roles(bot))
+    bot.add_cog(pg(bot))

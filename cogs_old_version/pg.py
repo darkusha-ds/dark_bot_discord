@@ -5,10 +5,6 @@ from typing import Union
 from main import *
 from settings import *
 
-alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')
-numbers = list('1234567890')
-symbols = list('!@#$%^&*()_+~=[]}{:;/<>-')
-
 class pg(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,10 +14,10 @@ class pg(commands.Cog):
         channel = bot.get_channel(load_bot)
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
-    @commands.command(aliases=aliaces_pg)
+    @commands.command(name=comm_pg, aliases=aliaces_pg)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
-    async def password(self, ctx, type=None, length: Union[int]=None):
+    async def password(self, ctx, type=None, length: Union[int, str]=None):
         cci = ctx.channel.id
         if type is None:
             await ctx.channel.purge(limit=1)
