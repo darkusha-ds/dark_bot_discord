@@ -3,7 +3,7 @@ from discord.ext import commands
 from main import *
 from settings import *
 
-class creator(commands.Cog):
+class Creator(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -44,4 +44,4 @@ class creator(commands.Cog):
             await ctx.send("You aren't bot creator", delete_after=time_5s)
 
 def setup(bot):
-    bot.add_cog(creator(bot))
+    bot.add_cog(Creator(bot))
