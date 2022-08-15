@@ -46,7 +46,7 @@ class Funny(commands.Cog):
 
     @afk.error
     async def afk_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -77,7 +77,7 @@ class Funny(commands.Cog):
 
     @magic_eight_ball.error
     async def ball_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -107,7 +107,7 @@ class Funny(commands.Cog):
 
     @hit.error
     async def hit_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -152,7 +152,7 @@ class Funny(commands.Cog):
 
     @hugs.error
     async def hugs_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -201,7 +201,7 @@ class Funny(commands.Cog):
 
     @kill.error
     async def kill_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -246,7 +246,7 @@ class Funny(commands.Cog):
 
     @kiss.error
     async def kiss_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -281,7 +281,7 @@ class Funny(commands.Cog):
 
     @enter.error
     async def enter_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -301,7 +301,7 @@ class Funny(commands.Cog):
 
     @logout.error
     async def logout_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -331,7 +331,7 @@ class Funny(commands.Cog):
 
     @pat.error
     async def pat_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -376,7 +376,7 @@ class Funny(commands.Cog):
 
     @poke.error
     async def poke_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -411,7 +411,7 @@ class Funny(commands.Cog):
 
     @rip.error
     async def rip_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
             
@@ -440,7 +440,7 @@ class Funny(commands.Cog):
 
     @snowball.error
     async def snowball_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
 

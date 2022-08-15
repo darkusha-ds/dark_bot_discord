@@ -28,7 +28,7 @@ class Utilities(commands.Cog):
 
     @films.error
     async def films_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
 
@@ -47,7 +47,7 @@ class Utilities(commands.Cog):
 
     @key.error
     async def key_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
 
@@ -103,7 +103,7 @@ class Utilities(commands.Cog):
 
     @password.error
     async def password_error(self, ctx, error):
-        if isinstance(error, commands.MissingPermissions):
+        if isinstance(error, commands.MissingAnyRole):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
 
