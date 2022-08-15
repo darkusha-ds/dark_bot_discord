@@ -8,19 +8,11 @@ channels = [
     870241377114533899,        # bots on DoDoshka 2.0
     784049510602244117,        # commands on Ksusha's server
     784373915215986699,        # bots on Ksusha's server
-]
-
-servers_id = [
-    726477611189927968,        # test server
-    791801009638342696,        # midgard
-    939858722824548372,        # smert
-    870237741739302912,        # DoDoshka 2.0
-    763632193150779412,        # Ksusha's server
+    1008775005439545366, 
 ]
 
 admins_id = [
     391682780322594840,        # Dark Angel
-    726492320609861753,        # Dark Angel_2
     579388394141122560,        # I_V1K1NG_I
     416248161431191552,        # R.I.P
     562622728050311191,        # DoDo_Arcee
@@ -58,10 +50,11 @@ roles = [
     870237741739302912,        # everyone
     # Ksusha's server
     763632193150779412,        # everyone
+    1008775004315455599,
 ]
 
 # channel, where I can see bot time load
-load_bot = 936239894009901166  # test_server
+load_bot = 1008775005439545366  # test_server
 
 # shortcuts
 time_5s = 5.0          # cogs_time
