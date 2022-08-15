@@ -33,14 +33,5 @@ class rip(commands.Cog):
             
             ctx.command.reset_cooldown(ctx)
 
-        if isinstance(error, commands.CommandError):
-            await ctx.message.delete()
-
-            embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_rip + error_comm_nick)
-            await ctx.send(embed=embed, delete_after=time_5s)
-
-            ctx.command.reset_cooldown(ctx)
-
 def setup(bot):
     bot.add_cog(rip(bot))
