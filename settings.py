@@ -120,7 +120,7 @@ comm_help = 'help'
 aliaces_help = ["хелп", "помощь"]
 
 comm_hugs = 'hugs'
-aliaces_hugs = ["обнять", "hugs"]
+aliaces_hugs = ["обнять", "hug"]
 
 comm_kill = 'kill'
 aliaces_kill = ["убить", "похоронить"]
@@ -129,13 +129,13 @@ comm_kiss = 'kiss'
 aliaces_kiss = ["чмок", "поцеловать", "засосать"]
 
 comm_pats = 'pats'
-aliaces_pats = ["погладить", "pats"]
+aliaces_pats = ["погладить", "pat"]
 
 comm_poke = 'poke'
 aliaces_poke = ["тык", "тыкнуть"]
 
 comm_hit = 'hits'
-aliaces_hit = ["ударить", "стук"]
+aliaces_hit = ["ударить", "стук", "hit"]
 
 comm_key = 'key'
 aliaces_key = []
