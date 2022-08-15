@@ -59,7 +59,7 @@ class Utilities(commands.Cog):
     async def password(self, ctx, type=None, length: Union[int, str]=None):
         cci = ctx.channel.id
         if type is None:
-            # await ctx.channel.purge(limit=1)
+            await ctx.channel.purge(limit=1)
             
             embed = discord.Embed(color=discord.Colour.random())
             embed.add_field(name='Ошибка', value=error_comm + pref + comm_pg + ' ***уровень защиты: `1` , `2` или `3`***')
@@ -67,7 +67,7 @@ class Utilities(commands.Cog):
 
             ctx.command.reset_cooldown(ctx)
         elif length is None:
-            # await ctx.channel.purge(limit=1)
+            await ctx.channel.purge(limit=1)
 
             embed = discord.Embed(color=discord.Colour.random())
             embed.add_field(name='Ошибка', value=error_comm + pref + comm_pg + ' ' + type + ' ***длину пароля (от 8 до 32)***')
