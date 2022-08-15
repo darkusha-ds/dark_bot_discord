@@ -27,28 +27,28 @@ class Information(commands.Cog):
 
             embed.add_field(
                 name=f"📋  Информация ({pref}хелп Информация)",
-                value=f"`{pref}help` `{pref}user`",
+                value=f"`{pref}{comm_help}` `{pref}{comm_userinfo}`",
                 inline=False
             )
             embed.add_field(
                 name=f"🛡️  Модерирование ({pref}хелп Модерирование)",
-                value=f"`{pref}clear` `{pref}ban` `{pref}unban` ",
+                value=f"`{pref}{comm_clear}` `{pref}{comm_ban}` `{pref}{comm_unban}` ",
                 inline=False
             )
             embed.add_field(
                 name=f"😄  Весёлое ({pref}хелп Весёлое)",
-                value=f"`{pref}afk` `{pref}шар` `{pref}hit` `{pref}hug` `{pref}kill` `{pref}kiss` `{pref}зайти` `{pref}выйти` `{pref}pat` `{pref}poke` `{pref}rip` `{pref}snowball`",
+                value=f"`{pref}{comm_afk}` `{pref}{comm_ball}` `{pref}{comm_hit}` `{pref}{comm_hugs}` `{pref}{comm_kill}` `{pref}{comm_kiss}` `{pref}{comm_login}` `{pref}{comm_logout}` `{pref}{comm_pats}` `{pref}{comm_poke}` `{pref}{comm_rip}` `{pref}{comm_snow}`",
                 inline=False
             )
             embed.add_field(
                 name=f"🔧  Утилиты ({pref}хелп Утилиты)",
-                value=f"`{pref}password` `{pref}key` `{pref}ютуб`",
+                value=f"`{pref}{comm_pg}` `{pref}{comm_key}` `{pref}{comm_films}`",
                 inline=False
             )
 
             embed.add_field(
                 name=f":man_technologist:  Для создателя)",
-                value=f"`{pref}servers`",
+                value=f"`{pref}{comm_servers}` `{pref}{comm_roles}`",
                 inline=False
             )
 
@@ -106,6 +106,7 @@ class Information(commands.Cog):
         await ctx.send(f'Server Name: {guild.name}')
         await ctx.send(f'Server Size: {len(guild.members)}')
         await ctx.send(f'Server Name: {guild.owner.display_name}')
+    
 
 def setup(bot):
     bot.add_cog(Information(bot))

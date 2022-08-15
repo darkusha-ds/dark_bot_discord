@@ -67,12 +67,18 @@ time_5s = 5.0          # cogs_time
 time_10s = 10.0        # other_time
 time_20s = 20.0        # def_time
 time_120s = 120.0      # two_mins
+
 error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
 error_message = "Ошибка, вы пишете не в том канале"
 error_perms = "У вас не достаточно прав на использование этой команды"
 error_member = "Пользователь не найден"
+error_comm = 'В написании команды произошла ошибка. \n Вам необходимо написать: \n'
+error_comm_nick = ' ***@user#0000***'
+error_comm_question = ' ***вопрос***'
+
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
+
 logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
 logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
 
@@ -98,8 +104,8 @@ aliaces_logout = ["выйти", "exit"]
 comm_clear = 'clear'
 aliaces_clear = ["очистить", "удалить"]
 
-comm_films = 'films'
-aliaces_films = ["film", "youtube", "yt", "фильм", "ютуб"]
+comm_films = 'ютуб'
+aliaces_films = ["film", "youtube", "yt", "фильм", "films"]
 
 comm_login = 'login'
 aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл", "join", "enter"]

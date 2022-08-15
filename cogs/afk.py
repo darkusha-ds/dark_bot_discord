@@ -46,5 +46,13 @@ class afk(commands.Cog):
         else:
             await ctx.send(error_message, delete_after=time_10s)
 
+    @afk.error
+    async def afk_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
+            
+            ctx.command.reset_cooldown(ctx)
+
 def setup(bot):
     bot.add_cog(afk(bot))

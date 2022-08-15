@@ -14,14 +14,17 @@ class Moderation(commands.Cog):
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
 
     @commands.command(name=comm_clear, aliases=aliaces_clear)
+    @commands.has_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
-        if ctx.author.id in admins_id:
-            await ctx.channel.purge(limit=amount)
-            await ctx.send(
-                embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=discord.Colour.random()), delete_after=time_10s)
-        else:
-            await ctx.channel.purge(limit=1)
-            await ctx.send("You aren't bot admin", delete_after=time_5s)
+        await ctx.channel.purge(limit=amount)
+        await ctx.send(
+            embed=discord.Embed(description=f':white_check_mark: Удалено {amount} сообщений', color=discord.Colour.random()), delete_after=time_10s)
+
+    @clear.error
+    async def clear_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
     
 
     @commands.command(name=comm_unban, aliaces=aliaces_unban)

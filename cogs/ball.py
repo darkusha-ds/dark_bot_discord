@@ -23,10 +23,11 @@ class ball(commands.Cog):
                 await ctx.channel.purge(limit=1)
                 await ctx.send(
                     embed=discord.Embed(
-                        color=0xff9900,
-                        title=f'{ctx.author.name}#{ctx.author.discriminator}, **укажите пользователя**',
-                        description=f'Пример: {pref}ball **вопрос**'
-                ), delete_after=time_5s)
+                        color=discord.Colour.random(),
+                        title='Ошибка',
+                        description=error_comm + pref + comm_snow + error_comm_question
+                    ), delete_after=time_5s)
+                ctx.command.reset_cooldown(ctx)
             else:
                 embed = discord.Embed(color=discord.Colour.random(), title='')
                 embed.add_field(name=arg, value=random.choice(phrazes.ball), inline=False)
@@ -34,6 +35,14 @@ class ball(commands.Cog):
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+
+    @magic_eight_ball.error
+    async def ball_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
+            
+            ctx.command.reset_cooldown(ctx)
 
 def setup(bot):
     bot.add_cog(ball(bot))

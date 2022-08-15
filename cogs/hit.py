@@ -16,7 +16,7 @@ class hit(commands.Cog):
     @commands.command(name='hit', aliases=aliaces_hit)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
-    async def hits(self, ctx, member: discord.Member = None):
+    async def hit(self, ctx, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
         cci = ctx.channel.id
@@ -34,6 +34,29 @@ class hit(commands.Cog):
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+
+    @hit.error
+    async def hit_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
+            
+            ctx.command.reset_cooldown(ctx)
+
+        if isinstance(error, commands.MemberNotFound):
+            await ctx.message.delete()
+            await ctx.send(error_member, delete_after=time_5s)
+            
+            ctx.command.reset_cooldown(ctx)
+
+        if isinstance(error, commands.CommandError):
+            await ctx.message.delete()
+
+            embed = discord.Embed(color=discord.Colour.random())
+            embed.add_field(name='Ошибка', value=error_comm + pref + comm_hit + error_comm_nick)
+            await ctx.send(embed=embed, delete_after=time_5s)
+
+            ctx.command.reset_cooldown(ctx)
 
 def setup(bot):
     bot.add_cog(hit(bot))
