@@ -212,6 +212,22 @@ aliaces_ban = ["бан", "забанить"]
 comm_unban = 'unban'
 aliaces_unban = ["разбан", "разбанить"]
 
+
+comm_setpref = 'setpref'
+aliaces_setpref = []
+
+comm_add_role = 'add_role'
+aliaces_add_role = []
+
+comm_del_role = 'del_role'
+aliaces_del_role = []
+
+comm_add_channel = 'add_channel'
+aliaces_add_channel = []
+
+comm_del_channel = 'del_channel'
+aliaces_del_channel = []
+
 # for password command
 alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')
 numbers = list('1234567890')
