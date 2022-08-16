@@ -1,7 +1,6 @@
-import discord
-from discord.ext import commands
 from main import *
 from settings import *
+from phrazes import *
 
 class Creator(commands.Cog):
     def __init__(self, bot):

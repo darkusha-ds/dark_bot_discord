@@ -1,7 +1,3 @@
-import discord, uuid
-from random import shuffle
-from typing import Union
-from discord.ext import commands
 from main import *
 from settings import *
 from phrazes import *

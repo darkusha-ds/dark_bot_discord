@@ -1,5 +1,3 @@
-import discord, json
-from discord.ext import commands
 from main import *
 from settings import *
 from phrazes import *

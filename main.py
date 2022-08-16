@@ -1,8 +1,3 @@
-import discord, os, datetime, pytz, TenGiphPy, random, json
-from discord.ext import commands
-from discord.utils import get
-from discord_together import DiscordTogether
-from datetime import datetime as dt
 from config import *
 from settings import *
 from phrazes import *
@@ -38,7 +33,7 @@ async def on_ready():
 # SET PREFIX FOR EACH SERVER
 @bot.event
 async def on_guild_join(guild):
-    prefix[str(guild.id)] = "."
+    prefix[str(guild.id)] = "$"
     with open("jsons/prefix.json", "w") as f:
         json.dump(prefix, f, indent=4)
         

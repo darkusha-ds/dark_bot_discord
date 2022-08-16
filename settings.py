@@ -1,4 +1,10 @@
-import json
+import discord, os, datetime, pytz, TenGiphPy, random, json, uuid
+from discord.ext import commands
+from discord.utils import get
+from discord_together import DiscordTogether
+from random import shuffle
+from typing import Union
+from datetime import datetime as dt
 
 # channel, where I can see bot time load
 load_bot = 1008775005439545366  # test_server

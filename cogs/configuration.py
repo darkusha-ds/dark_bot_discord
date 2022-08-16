@@ -1,5 +1,3 @@
-import discord, json
-from discord.ext import commands
 from main import *
 from settings import *
 from phrazes import *
@@ -36,7 +34,7 @@ class Configuration(commands.Cog):
     async def add_role(self, ctx, role_id: int):
         role_name = get(ctx.guild.roles, id=role_id)
 
-        roless[str(ctx.guild.id)].append(str(role_name))
+        roless[str(ctx.guild.id)].append(str(role_id))
 
         with open("jsons/roles.json", "w", encoding='utf8') as f:
             json.dump(roless, f, indent=4, ensure_ascii=False)
@@ -45,6 +43,25 @@ class Configuration(commands.Cog):
 
     @add_role.error
     async def add_role_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
+
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def del_role(self, ctx, role_id: int):
+        role_name = get(ctx.guild.roles, id=role_id)
+
+        roless[str(ctx.guild.id)].remove(str(role_id))
+
+        with open("jsons/roles.json", "w", encoding='utf8') as f:
+            json.dump(roless, f, indent=4, ensure_ascii=False)
+
+        await ctx.send(f"Remove role `{role_name}`")
+
+    @del_role.error
+    async def del_role_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)
