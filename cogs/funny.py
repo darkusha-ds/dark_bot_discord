@@ -66,7 +66,7 @@ class Funny(commands.Cog):
                     embed=discord.Embed(
                         color=discord.Colour.random(),
                         title='Ошибка',
-                        description=error_comm + pref + comm_snow + error_comm_question
+                        description=error_comm + prefix[str(ctx.guild.id)] + comm_snow + error_comm_question
                     ), delete_after=time_5s)
                 ctx.command.reset_cooldown(ctx)
             else:
@@ -128,7 +128,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_hit + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_hit + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -174,7 +174,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_hugs + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_hugs + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -224,7 +224,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_kill + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_kill + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -270,7 +270,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_kiss + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_kiss + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -358,7 +358,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_pats + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_pats + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -404,7 +404,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_poke + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_poke + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)
@@ -470,7 +470,7 @@ class Funny(commands.Cog):
             await ctx.message.delete()
 
             embed = discord.Embed(color=discord.Colour.random())
-            embed.add_field(name='Ошибка', value=error_comm + pref + comm_snow + error_comm_nick)
+            embed.add_field(name='Ошибка', value=error_comm + prefix[str(ctx.guild.id)] + comm_snow + error_comm_nick)
             await ctx.send(embed=embed, delete_after=time_5s)
 
             ctx.command.reset_cooldown(ctx)

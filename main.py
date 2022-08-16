@@ -8,11 +8,9 @@ from settings import *
 from phrazes import *
 
 # Дьяволенок v1
-pref = D_v1["prefix"]
 tok = D_v1["token"]
 
 # # Дьяволенок v2
-# pref = D_v2["prefix"]
 # tok = D_v2["token"]
 
 
