@@ -31,8 +31,8 @@ class Information(commands.Cog):
             )
             embed.add_field(
                 name=f"🛡️  Модерирование ({prefix[str(ctx.guild.id)]}хелп Модерирование)",
-                value=f"`{prefix[str(ctx.guild.id)]}{comm_clear}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_ban}`" +
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_clear}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_ban}` " +
                       f"`{prefix[str(ctx.guild.id)]}{comm_unban}` ",
                 inline=False
             )
