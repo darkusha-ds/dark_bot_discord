@@ -37,7 +37,7 @@ class Information(commands.Cog):
                 inline=False
             )
             embed.add_field(
-                name=f"🛡️  Конфигурация ({prefix[str(ctx.guild.id)]}хелп Конфигурация)",
+                name=f"💻  Конфигурация ({prefix[str(ctx.guild.id)]}хелп Конфигурация)",
                 value=f"`{prefix[str(ctx.guild.id)]}{comm_setpref}` " +
                       f"`{prefix[str(ctx.guild.id)]}{comm_add_role}` " +
                       f"`{prefix[str(ctx.guild.id)]}{comm_del_role}` " +
