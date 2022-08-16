@@ -1,27 +1,31 @@
 import discord, os, datetime, pytz, TenGiphPy, random, json
 from discord.ext import commands
+from discord.utils import get
 from discord_together import DiscordTogether
 from datetime import datetime as dt
 from config import *
 from settings import *
+from phrazes import *
 
 # Дьяволенок v1
 pref = D_v1["prefix"]
 tok = D_v1["token"]
 
-# Дьяволенок v2
+# # Дьяволенок v2
 # pref = D_v2["prefix"]
 # tok = D_v2["token"]
 
 
 def get_prefix(bot, message):
-    with open("prefix.json", "r") as f:
+    with open("jsons/prefix.json", "r") as f:
         prefix = json.load(f)
     return prefix[str(message.guild.id)]
 
+intents = discord.Intents.default()
+intents.members = True
 
 tenor = TenGiphPy.Tenor(token=teno["token"])
-bot = commands.Bot(command_prefix=get_prefix)
+bot = commands.Bot(command_prefix=get_prefix, intents=intents)
 bot.remove_command("help")
 
 @bot.event
@@ -30,42 +34,51 @@ async def on_ready():
     channel = bot.get_channel(load_bot)
     print("We have logged in as {0.user}".format(bot))
     await channel.send(f"=====================================\n"
-                       "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}"
-                       f"\n=====================================")
+                       "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}")
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Напишите help для просмотра команд'))
 
 # SET PREFIX FOR EACH SERVER
 @bot.event
 async def on_guild_join(guild):
-    with open("prefix.json", "r") as f:
-        prefix = json.load(f)
     prefix[str(guild.id)] = "."
-    with open("prefix.json", "w") as f:
+    with open("jsons/prefix.json", "w") as f:
         json.dump(prefix, f, indent=4)
+        
+    roless[str(guild.id)] = []
+    with open("jsons/roles.json", "w") as f:
+        json.dump(roless, f, indent=4)
+        
+    channels[str(guild.id)] = []
+    with open("jsons/channels.json", "w") as f:
+        json.dump(channels, f, indent=4)
+        
+    owners[str(guild.id)] = str(guild.owner.id)
+    with open("jsons/owners.json", "w") as f:
+        json.dump(owners, f, indent=4)
 
-@bot.event
-async def on_guild_remove(guild):
-    with open("prefix.json", "r") as f:
-        prefix = json.load(f)
-    prefix.pop(str(guild.id))
-    with open("prefix.json", "w") as f:
-        json.dump(prefix, f, indent=4)
-
-@bot.command()
-@commands.has_permissions(administrator=True)
-async def setprefix(ctx, new: str):
-    with open("prefix.json", "r") as f:
-        prefix = json.load(f)
-    prefix[str(ctx.guild.id)] = new
-    with open("prefix.json", "w") as f:
-        json.dump(prefix, f, indent=4)
-    await ctx.send(f"New prefix `{new}`")
+# @bot.event
+# async def on_guild_remove(guild):
+#     prefix.pop(str(guild.id))
+#     with open("jsons/prefix.json", "w") as f:
+#         json.dump(prefix, f, indent=4)
+    
+#     roless.pop(str(guild.id))
+#     with open("jsons/roles.json", "w") as f:
+#         json.dump(roless, f, indent=4)
+    
+#     channels.pop(str(guild.id))
+#     with open("jsons/channels.json", "w") as f:
+#         json.dump(channels, f, indent=4)
+    
+#     owners.pop(str(guild.id))
+#     with open("jsons/owners.json", "w") as f:
+#         json.dump(owners, f, indent=4)
 
 
 # COGS FOR COMMANDS
 @bot.command()
 async def load(ctx, extension):
-    if ctx.author.id in admins_id:
+    if ctx.author.id == 391682780322594840:
         bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
@@ -74,7 +87,7 @@ async def load(ctx, extension):
 
 @bot.command()
 async def unload(ctx, extension):
-    if ctx.author.id in admins_id:
+    if ctx.author.id == 391682780322594840:
         bot.unload_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
@@ -83,7 +96,7 @@ async def unload(ctx, extension):
 
 @bot.command()
 async def reload(ctx, extension):
-    if ctx.author.id in admins_id:
+    if ctx.author.id == 391682780322594840:
         bot.unload_extension(f'cogs.{extension}')
         bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")

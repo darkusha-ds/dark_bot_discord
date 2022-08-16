@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from main import *
 from settings import *
+from phrazes import *
 
 class Information(commands.Cog):
     def __init__(self, bot):
@@ -15,40 +16,39 @@ class Information(commands.Cog):
     @commands.group(name=comm_help, aliases=aliaces_help, invoke_without_command=True)
     # @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
     async def help(self, ctx):
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             embed = discord.Embed(
                 title="Доступные команды:",
-                description=f"Вы можете получить детальную справку по каждой команде указав название. Например: `{pref}хелп инфо` (пока в разработке)",
+                description=f"Вы можете получить детальную справку по каждой команде указав название. Например: `{prefix[str(ctx.guild.id)]}хелп инфо` (пока в разработке)",
                 color=discord.Colour.random(),
             )
 
             embed.set_thumbnail(url=logo)
 
             embed.add_field(
-                name=f"📋  Информация ({pref}хелп Информация)",
-                value=f"`{pref}{comm_help}` `{pref}{comm_userinfo}`",
+                name=f"📋  Информация ({prefix[str(ctx.guild.id)]}хелп Информация)",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_help}` `{prefix[str(ctx.guild.id)]}{comm_userinfo}`",
                 inline=False
             )
             embed.add_field(
-                name=f"🛡️  Модерирование ({pref}хелп Модерирование)",
-                value=f"`{pref}{comm_clear}` `{pref}{comm_ban}` `{pref}{comm_unban}` ",
+                name=f"🛡️  Модерирование ({prefix[str(ctx.guild.id)]}хелп Модерирование)",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_clear}` `{prefix[str(ctx.guild.id)]}{comm_ban}` `{prefix[str(ctx.guild.id)]}{comm_unban}` `{prefix[str(ctx.guild.id)]}{comm_setpref}` ",
                 inline=False
             )
             embed.add_field(
-                name=f"😄  Весёлое ({pref}хелп Весёлое)",
-                value=f"`{pref}{comm_afk}` `{pref}{comm_ball}` `{pref}{comm_hit}` `{pref}{comm_hugs}` `{pref}{comm_kill}` `{pref}{comm_kiss}` `{pref}{comm_login}` `{pref}{comm_logout}` `{pref}{comm_pats}` `{pref}{comm_poke}` `{pref}{comm_rip}` `{pref}{comm_snow}`",
+                name=f"😄  Весёлое ({prefix[str(ctx.guild.id)]}хелп Весёлое)",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_afk}` `{prefix[str(ctx.guild.id)]}{comm_ball}` `{prefix[str(ctx.guild.id)]}{comm_hit}` `{prefix[str(ctx.guild.id)]}{comm_hugs}` `{prefix[str(ctx.guild.id)]}{comm_kill}` `{prefix[str(ctx.guild.id)]}{comm_kiss}` `{prefix[str(ctx.guild.id)]}{comm_login}` `{prefix[str(ctx.guild.id)]}{comm_logout}` `{prefix[str(ctx.guild.id)]}{comm_pats}` `{prefix[str(ctx.guild.id)]}{comm_poke}` `{prefix[str(ctx.guild.id)]}{comm_rip}` `{prefix[str(ctx.guild.id)]}{comm_snow}`",
                 inline=False
             )
             embed.add_field(
-                name=f"🔧  Утилиты ({pref}хелп Утилиты)",
-                value=f"`{pref}{comm_pg}` `{pref}{comm_key}` `{pref}{comm_films}`",
+                name=f"🔧  Утилиты ({prefix[str(ctx.guild.id)]}хелп Утилиты)",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_pg}` `{prefix[str(ctx.guild.id)]}{comm_key}` `{prefix[str(ctx.guild.id)]}{comm_films}`",
                 inline=False
             )
 
             embed.add_field(
                 name=f":man_technologist:  Для создателя)",
-                value=f"`{pref}{comm_servers}` `{pref}{comm_roles}`",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_servers}` `{prefix[str(ctx.guild.id)]}{comm_roles}`",
                 inline=False
             )
 
@@ -64,38 +64,46 @@ class Information(commands.Cog):
 
     @help.command()
     @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
-    async def one(self, ctx):
-        await ctx.channel.purge(limit=1)
-        await ctx.send("h1", delete_after=time_20s)
+    async def информация(self, ctx):
+        await ctx.send("h1")
 
     @help.command()
     @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
-    async def two(self, ctx):
-        await ctx.channel.purge(limit=1)
-        await ctx.send("h2", delete_after=time_20s)
+    async def модерация(self, ctx):
+        await ctx.send("h2")
 
     @help.command()
     @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
-    async def three(self, ctx):
-        await ctx.channel.purge(limit=1)
-        await ctx.send("h3", delete_after=time_20s)
+    async def веселое(self, ctx):
+        await ctx.send("h3")
+
+    @help.command()
+    @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
+    async def утилиты(self, ctx):
+        await ctx.send("h4")
 
     
     @commands.command(name=comm_userinfo, aliases=aliaces_userinfo)
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def user(self, ctx, member: discord.Member = None):
-        if member is None:
-            member = ctx.author
-        embed = discord.Embed(title=f"Info {member.name}")
-        embed.set_thumbnail(url=member.avatar_url)
-        embed.add_field(name="ID", value=member.id, inline=True)
-        embed.add_field(name="Nickname", value=member.display_name, inline=True)
-        embed.add_field(name="Top role", value=member.top_role.mention, inline=True)
-        embed.add_field(name="Created at", value=member.created_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
-        embed.add_field(name="Joined at", value=member.joined_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
-        embed.add_field(name="Bot?", value=member.bot, inline=True)
-        await ctx.send(embed=embed)
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
+            if member is None:
+                member = ctx.author
+            embed = discord.Embed(title=f"Info {member.name}")
+            embed.set_thumbnail(url=member.avatar_url)
+            embed.add_field(name="ID", value=member.id, inline=True)
+            embed.add_field(name="Nickname", value=member.display_name, inline=True)
+            embed.add_field(name="Top role", value=member.top_role.mention, inline=True)
+            embed.add_field(name="Created at", value=member.created_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+            embed.add_field(name="Joined at", value=member.joined_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+            embed.add_field(name="Bot?", value=member.bot, inline=True)
+            await ctx.send(embed=embed)
+        else:
+            await ctx.channel.purge(limit=1)
+            await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
     
     @commands.command(name=comm_server, aliases=aliaces_server)
     # @commands.has_any_role(*roles)
@@ -106,7 +114,23 @@ class Information(commands.Cog):
         await ctx.send(f'Server Name: {guild.name}')
         await ctx.send(f'Server Size: {len(guild.members)}')
         await ctx.send(f'Server Name: {guild.owner.display_name}')
+
     
+    # @commands.command(name=comm_userinfo, aliases=aliaces_userinfo)
+    # @commands.has_any_role(*roles)
+    # @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
+    # async def owner(self, ctx, member: discord.Member = None):
+    #     if member is None:
+    #         member = ctx.author
+    #     embed = discord.Embed(title=f"Info {member.name}")
+    #     embed.set_thumbnail(url=member.avatar_url)
+    #     embed.add_field(name="ID", value=member.id, inline=True)
+    #     embed.add_field(name="Nickname", value=member.display_name, inline=True)
+    #     embed.add_field(name="Top role", value=member.top_role.mention, inline=True)
+    #     embed.add_field(name="Created at", value=member.created_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+    #     embed.add_field(name="Joined at", value=member.joined_at.strftime("%d.%m.%Y %H:%M:%S"), inline=True)
+    #     embed.add_field(name="Bot?", value=member.bot, inline=True)
+    #     await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Information(bot))

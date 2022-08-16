@@ -115,3 +115,104 @@ snowball = [
     "{0} закопал снежками {1}",
     "{0} закидал снежками {1}"
 ]
+
+error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
+error_message = "Ошибка, вы пишете не в том канале"
+error_perms = "У вас не достаточно прав на использование этой команды"
+error_member = "Пользователь не найден"
+error_comm = 'В написании команды произошла ошибка. \n Вам необходимо написать: \n'
+error_owner = "You aren't owner of this server"
+error_comm_nick = ' ***@user#0000***'
+error_comm_question = ' ***вопрос***'
+
+# shortcuts
+time_5s = 5.0          # cogs_time
+time_10s = 10.0        # other_time
+time_20s = 20.0        # def_time
+time_120s = 120.0      # two_mins
+
+# for datetime
+region = "Asia/Yekaterinburg"
+time_format = '%d-%m-%Y at %H:%M:%S'
+
+# for embed
+logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
+logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
+
+# commands shortcuts
+comm_snow = 'snowball'
+aliaces_snowball = ["снежок", "snow"]
+
+comm_userinfo = 'user'
+aliaces_userinfo = ['юзер', 'userinfo']
+
+comm_servers = 'servers'
+aliaces_servers = ["active", "servs"]
+
+comm_setpref = 'setprefix'
+aliaces_setpref = []
+
+comm_server = 'server'
+aliaces_server = ['сервер']
+
+comm_logout = 'logout'
+aliaces_logout = ["выйти", "exit"]
+
+comm_clear = 'clear'
+aliaces_clear = ["очистить", "удалить"]
+
+comm_films = 'ютуб'
+aliaces_films = ["film", "youtube", "yt", "фильм", "films"]
+
+comm_login = 'login'
+aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл", "join", "enter"]
+
+comm_roles = 'roles'
+aliaces_roles = ["rols", "role"]
+
+comm_ball = 'ball'
+aliaces_ball = ["шар", "8ball"]
+
+comm_help = 'help'
+aliaces_help = ["хелп", "помощь"]
+
+comm_hugs = 'hugs'
+aliaces_hugs = ["обнять", "hug"]
+
+comm_kill = 'kill'
+aliaces_kill = ["убить", "похоронить"]
+
+comm_kiss = 'kiss'
+aliaces_kiss = ["чмок", "поцеловать", "засосать"]
+
+comm_pats = 'pats'
+aliaces_pats = ["погладить", "pat"]
+
+comm_poke = 'poke'
+aliaces_poke = ["тык", "тыкнуть"]
+
+comm_hit = 'hits'
+aliaces_hit = ["ударить", "стук", "hit"]
+
+comm_key = 'key'
+aliaces_key = []
+
+comm_afk = 'afk'
+aliaces_afk = ["афк"]
+
+comm_rip = 'rip'
+aliaces_rip = ["умереть"]
+
+comm_pg = 'password'
+aliaces_pg = ["pass", "пароль"]
+
+comm_ban = 'ban'
+aliaces_ban = ["бан", "забанить"]
+
+comm_unban = 'unban'
+aliaces_unban = ["разбан", "разбанить"]
+
+# for password command
+alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')
+numbers = list('1234567890')
+symbols = list('.,?!@#$%^&*()_+~"`=[]}{:;/<>-')

@@ -1,7 +1,8 @@
-import discord
+import discord, json
 from discord.ext import commands
 from main import *
 from settings import *
+from phrazes import *
 
 
 class Moderation(commands.Cog):
@@ -12,6 +13,7 @@ class Moderation(commands.Cog):
     async def on_ready(self):
         channel = bot.get_channel(load_bot)
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
+
 
     @commands.command(name=comm_clear, aliases=aliaces_clear)
     @commands.has_permissions(administrator=True)

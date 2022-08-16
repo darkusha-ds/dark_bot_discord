@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from main import *
 from settings import *
+from phrazes import *
 
 class Funny(commands.Cog):
     def __init__(self, bot):
@@ -25,8 +26,8 @@ class Funny(commands.Cog):
         move_6 = move_5.replace("[AФK", "").replace("[AФК", "").replace("[АФK", "").replace("[АФК", "")
         move_7 = move_6.replace("AFK", "").replace("AFК", "").replace("АFK", "").replace("АFК", "")
         old_nick = move_7.replace("AФK", "").replace("AФК", "").replace("АФK", "").replace("АФК", "")
-        cci = ctx.channel.id
-        if cci in channels:
+
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if "[AFK]" in current_nick or "[AFК]" in current_nick or "[АFK]" in current_nick or "[АFК]" in current_nick or \
                "[AФK]" in current_nick or "[AФК]" in current_nick or "[АФK]" in current_nick or "[АФК]" in current_nick or \
                "AFK]" in current_nick or "AFК]" in current_nick or "АFK]" in current_nick or "АFК]" in current_nick or \
@@ -43,7 +44,9 @@ class Funny(commands.Cog):
                 await ctx.send(f'{current_nick} ушел в АФК')
         else:
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @afk.error
     async def afk_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -56,8 +59,7 @@ class Funny(commands.Cog):
     @commands.has_any_role(*roles)
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def magic_eight_ball(self, ctx, *, arg=None):
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if arg is None:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(
@@ -69,11 +71,13 @@ class Funny(commands.Cog):
                 ctx.command.reset_cooldown(ctx)
             else:
                 embed = discord.Embed(color=discord.Colour.random(), title='')
-                embed.add_field(name=arg, value=random.choice(phrazes.ball), inline=False)
+                embed.add_field(name=arg, value=random.choice(ball), inline=False)
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
 
     @magic_eight_ball.error
     async def ball_error(self, ctx, error):
@@ -89,22 +93,23 @@ class Funny(commands.Cog):
     async def hit(self, ctx, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member == ctx.author:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
                 embed = discord.Embed(
                     color=discord.Colour.random(),
-                    description=random.choice(phrazes.hit).format(mam, mum)
+                    description=random.choice(hit).format(mam, mum)
                 )
                 embed.set_image(url=tenor.random(str(f'{comm_hit} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @hit.error
     async def hit_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -134,22 +139,23 @@ class Funny(commands.Cog):
     async def hugs(self, ctx, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member == ctx.author:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
                 embed = discord.Embed(
                     color=discord.Colour.random(),
-                    description=random.choice(phrazes.hugs).format(mam, mum)
+                    description=random.choice(hugs).format(mam, mum)
                 )
                 embed.set_image(url=tenor.random(str(f'{comm_hugs} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @hugs.error
     async def hugs_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -179,8 +185,7 @@ class Funny(commands.Cog):
     async def kill(self, ctx, *, member: discord.Member = None):
         mam = ctx.author.mention  # тег автора
         mum = member.mention  # тег участника
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member is None:
                 await ctx.channel.purge(limit=1)
                 await ctx.send("Error", delete_after=time_5s)
@@ -191,14 +196,16 @@ class Funny(commands.Cog):
                 else:
                     embed = discord.Embed(
                         color=discord.Colour.random(),
-                        description=random.choice(phrazes.kill).format(mam, mum)
+                        description=random.choice(kill).format(mam, mum)
                     )
                     embed.set_image(url=tenor.random(str(f'{comm_kill} anime')))
                     await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @kill.error
     async def kill_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -228,22 +235,23 @@ class Funny(commands.Cog):
     async def kiss(self, ctx, *, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member == ctx.author:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
                 embed = discord.Embed(
                     color=discord.Colour.random(),
-                    description=random.choice(phrazes.kiss).format(mam, mum)
+                    description=random.choice(kiss).format(mam, mum)
                 )
                 embed.set_image(url=tenor.random(str(f'{comm_kiss} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @kiss.error
     async def kiss_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -272,13 +280,14 @@ class Funny(commands.Cog):
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def enter(self, ctx):
         mam = ctx.author.mention  # тег автора
-        cci = ctx.channel.id
-        if cci in channels:
-            await ctx.send(random.choice(phrazes.login).format(mam))
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
+            await ctx.send(random.choice(login).format(mam))
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @enter.error
     async def enter_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -292,12 +301,13 @@ class Funny(commands.Cog):
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def logout(self, ctx):
         mam = ctx.author.mention  # тег автора
-        cci = ctx.channel.id
-        if cci in channels:
-            await ctx.send(random.choice(phrazes.logout).format(mam))
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
+            await ctx.send(random.choice(logout).format(mam))
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
 
     @logout.error
     async def logout_error(self, ctx, error):
@@ -313,21 +323,22 @@ class Funny(commands.Cog):
     async def pat(self, ctx, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member == ctx.author:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
                 embed = discord.Embed(
                     color=discord.Colour.random(),
-                    description=random.choice(phrazes.pats).format(mam, mum)
+                    description=random.choice(pats).format(mam, mum)
                 )
                 embed.set_image(url=tenor.random(str(f'{comm_pats} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
 
     @pat.error
     async def pat_error(self, ctx, error):
@@ -358,21 +369,22 @@ class Funny(commands.Cog):
     async def poke(self, ctx, member: discord.Member = None):
         mam = ctx.author.mention
         mum = member.mention
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member == ctx.author:
                 await ctx.channel.purge(limit=1)
                 await ctx.send(error_ctx_user, delete_after=time_10s)
             else:
                 embed = discord.Embed(
                     colour=discord.Colour.random(),
-                    description=random.choice(phrazes.poke).format(mam, mum)
+                    description=random.choice(poke).format(mam, mum)
                 )
                 embed.set_image(url=tenor.random(str(f'{comm_poke} anime')))
                 await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
 
     @poke.error
     async def poke_error(self, ctx, error):
@@ -402,13 +414,14 @@ class Funny(commands.Cog):
     @commands.cooldown(rate=1, per=60, type=commands.BucketType.user)
     async def rip(self, ctx):
         mam = ctx.author.mention  # тег автора
-        cci = ctx.channel.id
-        if cci in channels:
-            await ctx.send(random.choice(phrazes.rip).format(mam))
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
+            await ctx.send(random.choice(rip).format(mam))
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
-
+            
+            ctx.command.reset_cooldown(ctx)
+            
     @rip.error
     async def rip_error(self, ctx, error):
         if isinstance(error, commands.MissingAnyRole):
@@ -423,8 +436,7 @@ class Funny(commands.Cog):
     async def snowball(self, ctx, member: discord.Member=None):
         mam = ctx.author.mention  # тег автора
         mum = member.mention  # тег участника
-        cci = ctx.channel.id
-        if cci in channels:
+        if ctx.channel.id in channels[str(ctx.guild.id)]:
             if member is None:
                 await ctx.channel.purge(limit=1)
                 await ctx.send("Error")
@@ -433,10 +445,12 @@ class Funny(commands.Cog):
                     await ctx.channel.purge(limit=1)
                     await ctx.send("Ошибка, вы не можете использовать эту команду против себя", delete_after=time_10s)
                 else:
-                    await ctx.send(random.choice(phrazes.snowball).format(mam, mum))
+                    await ctx.send(random.choice(snowball).format(mam, mum))
         else:
             await ctx.channel.purge(limit=1)
             await ctx.send(error_message, delete_after=time_10s)
+            
+            ctx.command.reset_cooldown(ctx)
 
     @snowball.error
     async def snowball_error(self, ctx, error):
