@@ -25,8 +25,8 @@ class Information(commands.Cog):
 
             embed.add_field(
                 name=f"📋  Информация ({prefix[str(ctx.guild.id)]}хелп Информация)",
-                value=f"`{prefix[str(ctx.guild.id)]}{comm_help}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_userinfo}`",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_help}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_userinfo}` ",
                 inline=False
             )
             embed.add_field(
@@ -38,10 +38,10 @@ class Information(commands.Cog):
             )
             embed.add_field(
                 name=f"🛡️  Конфигурация ({prefix[str(ctx.guild.id)]}хелп Конфигурация)",
-                value=f"`{prefix[str(ctx.guild.id)]}{comm_setpref}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_add_role}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_del_role}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_add_channel}`" +
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_setpref}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_add_role}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_del_role}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_add_channel}` " +
                       f"`{prefix[str(ctx.guild.id)]}{comm_del_channel}` ",
                 inline=False
             )
@@ -63,9 +63,9 @@ class Information(commands.Cog):
             )
             embed.add_field(
                 name=f"🔧  Утилиты ({prefix[str(ctx.guild.id)]}хелп Утилиты)",
-                value=f"`{prefix[str(ctx.guild.id)]}{comm_pg}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_key}`" +
-                      f"`{prefix[str(ctx.guild.id)]}{comm_films}`",
+                value=f"`{prefix[str(ctx.guild.id)]}{comm_pg}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_key}` " +
+                      f"`{prefix[str(ctx.guild.id)]}{comm_films}` ",
                 inline=False
             )
 
