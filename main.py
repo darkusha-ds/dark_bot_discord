@@ -10,8 +10,6 @@ tok = D_v1["token"]
 
 
 def get_prefix(bot, message):
-    with open("jsons/prefix.json", "r") as f:
-        prefix = json.load(f)
     return prefix[str(message.guild.id)]
 
 intents = discord.Intents.default()
@@ -28,7 +26,7 @@ async def on_ready():
     print("We have logged in as {0.user}".format(bot))
     await channel.send(f"=====================================\n"
                        "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}")
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Напишите help для просмотра команд'))
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Внимание, некоторые команды могут работать нестабильно. Если заметили такую команду, напишите создателю'))
 
 # SET PREFIX FOR EACH SERVER
 @bot.event
