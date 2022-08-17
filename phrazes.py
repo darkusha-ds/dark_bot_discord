@@ -116,6 +116,17 @@ snowball = [
     "{0} закидал снежками {1}"
 ]
 
+afk_ph = [
+    "[AFK]", "[AFК]", "[АFK]", "[АFК]",
+    "[AФK]", "[AФК]","[АФK]","[АФК]",
+    "AFK]", "AFК]", "АFK]", "АFК]",
+    "AФK]", "AФК]", "АФK]", "АФК]",
+    "[AFK", "[AFК", "[АFK", "[АFК",
+    "[AФK", "[AФК", "[АФK", "[АФК",
+    "AFK", "AFК", "АFK", "АFК",
+    "AФK", "AФК", "АФK", "АФК",
+]
+
 error_ctx_user = "Ошибка, вы не можете использовать эту команду против себя"
 error_message = "Ошибка, вы пишете не в том канале"
 error_perms = "У вас не достаточно прав на использование этой команды"
@@ -131,6 +142,13 @@ time_10s = 10.0        # other_time
 time_20s = 20.0        # def_time
 time_120s = 120.0      # two_mins
 
+# for jsons
+json_prefix = "jsons/prefix.json"
+json_roles = "jsons/roles.json"
+json_channels = "jsons/channels.json"
+json_owners = "jsons/owners.json"
+json_mutes = "jsons/mute_roles.json"
+
 # for datetime
 region = "Asia/Yekaterinburg"
 time_format = '%d-%m-%Y at %H:%M:%S'
@@ -139,82 +157,14 @@ time_format = '%d-%m-%Y at %H:%M:%S'
 logo_adm = 'https://sun1-55.userapi.com/s/v1/if1/XO6OtL7g-k9YNc_Zrjr3TW7IZ_mVVpYbcIEdZ4BZidbB3cXsFTS2Zt8DdYSVgk4PvyXuG5aS.jpg?size=200x200&quality=96&crop=18,76,824,824&ava=1'
 logo = 'https://cdn3.emoji.gg/emojis/4784_DiscordLogoRainbow.gif'
 
-# commands shortcuts
-comm_snow = 'snowball'
-aliaces_snowball = ["снежок", "snow"]
+# COMMANDS SHORTCUTS
 
-comm_userinfo = 'user'
-aliaces_userinfo = ['юзер', 'userinfo']
-
-comm_servers = 'servers'
-aliaces_servers = ["active", "servs"]
-
-comm_setpref = 'setprefix'
-aliaces_setpref = []
-
-comm_server = 'server'
-aliaces_server = ['сервер']
-
-comm_logout = 'logout'
-aliaces_logout = ["выйти", "exit"]
-
-comm_clear = 'clear'
-aliaces_clear = ["очистить", "удалить"]
-
-comm_films = 'ютуб'
-aliaces_films = ["film", "youtube", "yt", "фильм", "films"]
-
-comm_login = 'login'
-aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл", "join", "enter"]
-
-comm_roles = 'roles'
-aliaces_roles = ["rols", "role"]
-
-comm_ball = 'ball'
-aliaces_ball = ["шар", "8ball"]
-
-comm_help = 'help'
-aliaces_help = ["хелп", "помощь"]
-
-comm_hugs = 'hugs'
-aliaces_hugs = ["обнять", "hug"]
-
-comm_kill = 'kill'
-aliaces_kill = ["убить", "похоронить"]
-
-comm_kiss = 'kiss'
-aliaces_kiss = ["чмок", "поцеловать", "засосать"]
-
-comm_pats = 'pats'
-aliaces_pats = ["погладить", "pat"]
-
-comm_poke = 'poke'
-aliaces_poke = ["тык", "тыкнуть"]
-
-comm_hit = 'hits'
-aliaces_hit = ["ударить", "стук", "hit"]
-
-comm_key = 'key'
-aliaces_key = []
-
-comm_afk = 'afk'
-aliaces_afk = ["афк"]
-
-comm_rip = 'rip'
-aliaces_rip = ["умереть"]
-
-comm_pg = 'password'
-aliaces_pg = ["pass", "пароль"]
-
-comm_ban = 'ban'
-aliaces_ban = ["бан", "забанить"]
-
-comm_unban = 'unban'
-aliaces_unban = ["разбан", "разбанить"]
-
-
+# configuration
 comm_setpref = 'setpref'
 aliaces_setpref = []
+
+comm_setmute = 'setmute'
+aliaces_setmute = []
 
 comm_add_role = 'add_role'
 aliaces_add_role = []
@@ -227,6 +177,94 @@ aliaces_add_channel = []
 
 comm_del_channel = 'del_channel'
 aliaces_del_channel = []
+
+
+# creator
+comm_servers = 'servers'
+aliaces_servers = ["active", "servs"]
+
+comm_roles = 'roles'
+aliaces_roles = ["rols", "role"]
+
+
+# funny
+comm_afk = 'afk'
+aliaces_afk = ["афк"]
+
+comm_ball = 'ball'
+aliaces_ball = ["шар", "8ball"]
+
+comm_hit = 'hits'
+aliaces_hit = ["ударить", "стук", "hit"]
+
+comm_hugs = 'hugs'
+aliaces_hugs = ["обнять", "hug"]
+
+comm_kill = 'kill'
+aliaces_kill = ["убить", "похоронить"]
+
+comm_kiss = 'kiss'
+aliaces_kiss = ["чмок", "поцеловать", "засосать"]
+
+comm_login = 'login'
+aliaces_login = ["войти", "зайти", "вошёл", "зашел", "зашёл", "join", "enter"]
+
+comm_logout = 'logout'
+aliaces_logout = ["выйти", "exit"]
+
+comm_pats = 'pats'
+aliaces_pats = ["погладить", "pat"]
+
+comm_poke = 'poke'
+aliaces_poke = ["тык", "тыкнуть"]
+
+comm_rip = 'rip'
+aliaces_rip = ["умереть"]
+
+comm_snow = 'snowball'
+aliaces_snowball = ["снежок", "snow"]
+
+
+# information
+comm_help = 'help'
+aliaces_help = ["хелп", "помощь"]
+
+comm_userinfo = 'user'
+aliaces_userinfo = ['юзер', 'userinfo']
+
+comm_avatar = 'avatar'
+aliaces_avatar = ["аватар"]
+
+comm_server = 'server'
+aliaces_server = ['сервер']
+
+
+# moderation
+comm_clear = 'clear'
+aliaces_clear = ["очистить", "удалить"]
+
+comm_ban = 'ban'
+aliaces_ban = ["бан", "забанить"]
+
+comm_unban = 'unban'
+aliaces_unban = ["разбан", "разбанить"]
+
+comm_kick = 'kick'
+aliaces_kick = ["выгнать"]
+
+
+# utils
+comm_pg = 'password'
+aliaces_pg = ["pass", "пароль"]
+
+comm_key = 'key'
+aliaces_key = []
+
+comm_films = 'ютуб'
+aliaces_films = ["film", "youtube", "yt", "фильм", "films"]
+
+
+
 
 # for password command
 alphabet = list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')

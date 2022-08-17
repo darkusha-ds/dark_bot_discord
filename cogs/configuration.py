@@ -17,8 +17,7 @@ class Configuration(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def setprefix(self, ctx, new: str):
         prefix[str(ctx.guild.id)] = new
-        with open("jsons/prefix.json", "w") as f:
-            json.dump(prefix, f, indent=4)
+        write_json(json_prefix, prefix)
 
         await ctx.send(f"New prefix `{new}`")
 
@@ -34,10 +33,8 @@ class Configuration(commands.Cog):
     async def add_role(self, ctx, role_id: int):
         role_name = get(ctx.guild.roles, id=role_id)
 
-        roless[str(ctx.guild.id)].append(str(role_id))
-
-        with open("jsons/roles.json", "w", encoding='utf8') as f:
-            json.dump(roless, f, indent=4, ensure_ascii=False)
+        roles[str(ctx.guild.id)].append(role_id)
+        write_json(json_roles, roles)
 
         await ctx.send(f"Add new role `{role_name}`")
 
@@ -53,10 +50,8 @@ class Configuration(commands.Cog):
     async def del_role(self, ctx, role_id: int):
         role_name = get(ctx.guild.roles, id=role_id)
 
-        roless[str(ctx.guild.id)].remove(str(role_id))
-
-        with open("jsons/roles.json", "w", encoding='utf8') as f:
-            json.dump(roless, f, indent=4, ensure_ascii=False)
+        roles[str(ctx.guild.id)].remove(role_id)
+        write_json(json_roles, roles)
 
         await ctx.send(f"Remove role `{role_name}`")
 
@@ -73,9 +68,7 @@ class Configuration(commands.Cog):
         channel_name = get(ctx.guild.channels, id=channel_id)
 
         channels[str(ctx.guild.id)].append(channel_id)
-
-        with open("jsons/channels.json", "w", encoding='utf8') as f:
-            json.dump(channels, f, indent=4, ensure_ascii=False)
+        write_json(json_channels, channels)
 
         await ctx.send(f"Add new channel `{channel_name}`")
 
@@ -92,14 +85,29 @@ class Configuration(commands.Cog):
         channel_name = get(ctx.guild.channels, id=channel_id)
 
         channels[str(ctx.guild.id)].remove(channel_id)
-
-        with open("jsons/channels.json", "w", encoding='utf8') as f:
-            json.dump(channels, f, indent=4, ensure_ascii=False)
+        write_json(json_channels, channels)
 
         await ctx.send(f"Remove channel `{channel_name}`")
 
     @del_channel.error
     async def del_channel_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.delete()
+            await ctx.send(error_perms, delete_after=time_5s)
+
+
+    @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def setmute(self, ctx, mute_id: int):
+        mute_name = get(ctx.guild.roles, id=mute_id)
+
+        mute_roles[str(ctx.guild.id)] = mute_id
+        write_json(json_mutes, mute_roles)
+
+        await ctx.send(f"Set mute role `{mute_name}`")
+
+    @setmute.error
+    async def setmute_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             await ctx.message.delete()
             await ctx.send(error_perms, delete_after=time_5s)

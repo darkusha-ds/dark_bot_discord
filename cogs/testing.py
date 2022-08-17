@@ -12,16 +12,17 @@ class Information(commands.Cog):
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
     
     @commands.command()
-    async def test(self, ctx):
-        for rol in ctx.author.roles:
-            if rol in roless[str(ctx.guild.id)]:
-                embed = discord.Embed(color=discord.Colour.random(), title='', description='hello')
-                await ctx.send(embed=embed)
+    async def test(self, ctx, *, tipe: int):
+        for role in ctx.author.roles:
+            if role.id in roles[str(ctx.guild.id)]:
+                if tipe == 1:
+                    await ctx.send('test 1')
+                    return
+                else:
+                    await ctx.send('test 2')
+                return
         else:
-            # await ctx.channel.purge(limit=1)
-            await ctx.send('error')
-            
-            ctx.command.reset_cooldown(ctx)
+            await ctx.send('no')
 
 
 def setup(bot):

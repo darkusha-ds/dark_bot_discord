@@ -5,7 +5,7 @@ from phrazes import *
 # Дьяволенок v1
 tok = D_v1["token"]
 
-# # Дьяволенок v2
+# Дьяволенок v2
 # tok = D_v2["token"]
 
 
@@ -34,20 +34,19 @@ async def on_ready():
 @bot.event
 async def on_guild_join(guild):
     prefix[str(guild.id)] = "$"
-    with open("jsons/prefix.json", "w") as f:
-        json.dump(prefix, f, indent=4)
+    write_json(json_prefix, prefix)
         
-    roless[str(guild.id)] = []
-    with open("jsons/roles.json", "w") as f:
-        json.dump(roless, f, indent=4)
+    roles[str(guild.id)] = []
+    write_json(json_roles, roles)
         
     channels[str(guild.id)] = []
-    with open("jsons/channels.json", "w") as f:
-        json.dump(channels, f, indent=4)
+    write_json(json_channels, channels)
         
     owners[str(guild.id)] = str(guild.owner.id)
-    with open("jsons/owners.json", "w") as f:
-        json.dump(owners, f, indent=4)
+    write_json(json_owners, owners)
+        
+    mute_roles[str(guild.id)] = ""
+    write_json(json_mutes, mute_roles)
 
 # @bot.event
 # async def on_guild_remove(guild):
