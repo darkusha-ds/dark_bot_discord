@@ -26,7 +26,7 @@ async def on_ready():
     print("We have logged in as {0.user}".format(bot))
     await channel.send(f"=====================================\n"
                        "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}")
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Внимание, некоторые команды могут работать нестабильно. Если заметили такую команду, напишите создателю'))
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Напишите help для просмотра команд'))
 
 # SET PREFIX FOR EACH SERVER
 @bot.event
@@ -107,6 +107,30 @@ async def on_command_error(ctx, error):
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py') and not filename.startswith("_"):
         bot.load_extension(f'cogs.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/conf'):
+    if filename.endswith('.py') and not filename.startswith("_"):
+        bot.load_extension(f'cogs.conf.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/creat'):
+    if filename.endswith('.py') and not filename.startswith("_"):
+        bot.load_extension(f'cogs.creat.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/fun'):
+    if filename.endswith('.py') and not filename.startswith("_"):
+        bot.load_extension(f'cogs.fun.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/info'):
+    if filename.endswith('.py') and not filename.startswith("_"):\
+        bot.load_extension(f'cogs.info.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/moder'):
+    if filename.endswith('.py') and not filename.startswith("_"):
+        bot.load_extension(f'cogs.moder.{filename[:-3]}')
+
+for filename in os.listdir('./cogs/utils'):
+    if filename.endswith('.py') and not filename.startswith("_"):
+        bot.load_extension(f'cogs.utils.{filename[:-3]}')
 
 bot.run(tok)
 
