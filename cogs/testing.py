@@ -2,7 +2,7 @@ from main import *
 from settings import *
 from phrazes import *
 
-class Information(commands.Cog):
+class testing(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -19,13 +19,13 @@ class Information(commands.Cog):
                     await ctx.send('test 1')
                     return
                 else:
-                    await ctx.send('test 2')
+                    await ctx.send('test')
                 return
         else:
             await ctx.send('no')
 
 
 def setup(bot):
-    bot.add_cog(Information(bot))
+    bot.add_cog(testing(bot))
 
 # roles_list = [role.id for role in ctx.guild.roles]
