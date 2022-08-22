@@ -2,6 +2,7 @@ from main import *
 from settings import *
 from phrazes import *
 
+
 class testing(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -12,18 +13,28 @@ class testing(commands.Cog):
         await channel.send('Module {} is loaded'.format(self.__class__.__name__))
     
     @commands.command()
-    async def test(self, ctx, *, tipe: int):
-        for role in ctx.author.roles:
-            if role.id in roles[str(ctx.guild.id)]:
-                if tipe == 1:
-                    await ctx.send('test 1')
-                    return
-                else:
-                    await ctx.send('test')
-                return
-        else:
-            await ctx.send('no')
+    async def test(self, ctx, texf: str = "asd"):
+        await ctx.send('Тест прошел успешно!')
+    #     with open("jsons/test.json", "r") as r:
+    #         test_json = json.load(r)
 
+    #     # test_json[str(ctx.guild.id)][0][str(ctx.author.id)] = []
+    #     test_json[str(ctx.guild.id)][0][str(ctx.author.id)] = texf
+
+    #     with open("jsons/test.json", "w") as out:
+    #         json.dump(test_json, out, ensure_ascii=False, indent=4)
+    #     await ctx.send(test_json[str(ctx.guild.id)])
+    
+    # @commands.command()
+    # async def test2(self, ctx):
+    #     with open("jsons/test.json", "r") as r:
+    #         test_json = json.load(r)
+
+    #     test_json[str(ctx.guild.id)][0].pop(str(ctx.author.id))
+
+    #     with open("jsons/test.json", "w") as out:
+    #         json.dump(test_json, out, ensure_ascii=False, indent=4)
+    #     await ctx.send(test_json[str(ctx.guild.id)])
 
 def setup(bot):
     bot.add_cog(testing(bot))

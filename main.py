@@ -5,7 +5,7 @@ from phrazes import *
 # Дьяволенок v1
 tok = D_v1["token"]
 
-# Дьяволенок v2
+# # Дьяволенок v2
 # tok = D_v2["token"]
 
 
@@ -25,7 +25,7 @@ async def on_ready():
     channel = bot.get_channel(load_bot)
     print("We have logged in as {0.user}".format(bot))
     await channel.send(f"=====================================\n"
-                       "{0.user} ".format(bot) + f"load {dt.now(pytz.timezone(region)).strftime(time_format)}")
+                       "{0.user} ".format(bot) + f"load {datetime.datetime.now(pytz.timezone(region)).strftime(time_format)}")
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(f'Напишите help для просмотра команд'))
 
 # SET PREFIX FOR EACH SERVER
@@ -45,6 +45,9 @@ async def on_guild_join(guild):
         
     mute_roles[str(guild.id)] = ""
     write_json(json_mutes, mute_roles)
+        
+    mute_list[str(guild.id)] = [{}]
+    write_json(json_mute_list, mute_list)
 
 # @bot.event
 # async def on_guild_remove(guild):

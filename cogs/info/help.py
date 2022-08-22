@@ -1,6 +1,4 @@
 from main import *
-from settings import *
-from phrazes import *
 
 class help(commands.Cog):
     def __init__(self, bot):
@@ -35,7 +33,10 @@ class help(commands.Cog):
             value=\
                 f"`{prefix[str(ctx.guild.id)]}{comm_clear}`  " +
                 f"`{prefix[str(ctx.guild.id)]}{comm_ban}`  " +
-                f"`{prefix[str(ctx.guild.id)]}{comm_unban}`  ",
+                f"`{prefix[str(ctx.guild.id)]}{comm_unban}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_kick}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_mute}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_unmute}`  ",
             inline=False
         )
         embed.add_field(

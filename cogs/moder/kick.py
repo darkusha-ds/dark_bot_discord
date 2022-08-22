@@ -15,12 +15,9 @@ class kick(commands.Cog):
 
     @commands.command(name=comm_kick, aliaces=aliaces_kick, pass_context = True)
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, user: discord.Member = None, *, reason='не указана'):
-        if user.server_permissions.administrator:
-            await bot.say("Ошибка, вы выбрали админа")
-        else:
-            await user.kick(reason)
-            await bot.say(f"{ctx.author.display_name} кикнул {user.display_name}, по причине: {reason}")
+    async def kick(self, ctx, user: discord.Member, *, reason='не указана'):
+        await user.kick(reason=reason)
+        await bot.say(f"{ctx.author.display_name} кикнул {user.display_name}, по причине: {reason}")
 
     @kick.error
     async def kick_error(self, ctx, error):

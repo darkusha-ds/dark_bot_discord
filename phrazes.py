@@ -80,6 +80,7 @@ rip = [
     "{0} был убит зомби вирусом",
     "{0} умер быстрой смертью",
     "{0} убил сам себя",
+    "{0} застрелился",
     "{0} взорвался",
     "{0} умер"
 ]
@@ -148,6 +149,7 @@ json_roles = "jsons/roles.json"
 json_channels = "jsons/channels.json"
 json_owners = "jsons/owners.json"
 json_mutes = "jsons/mute_roles.json"
+json_mute_list = "jsons/mutes.json"
 
 # for datetime
 region = "Asia/Yekaterinburg"
@@ -251,6 +253,12 @@ aliaces_unban = ["разбан", "разбанить"]
 
 comm_kick = 'kick'
 aliaces_kick = ["выгнать"]
+
+comm_mute = 'mute'
+aliaces_mute = []
+
+comm_unmute = 'unmute'
+aliaces_unmute = []
 
 
 # utils

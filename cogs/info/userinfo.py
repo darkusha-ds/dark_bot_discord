@@ -1,6 +1,4 @@
 from main import *
-from settings import *
-from phrazes import *
 
 class userinfo(commands.Cog):
     def __init__(self, bot):
