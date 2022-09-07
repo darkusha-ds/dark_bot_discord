@@ -274,6 +274,40 @@ comm_films = 'ютуб'
 aliaces_films = ["film", "youtube", "yt", "фильм", "films"]
 
 
+# music
+comm_connect = 'join'
+aliaces_connect = ['connect', 'j']
+
+comm_play = 'play'
+aliaces_play = ['sing','p']
+
+comm_pause = 'pause'
+aliaces_pause = []
+
+comm_resume = 'resume'
+aliaces_resume = []
+
+comm_skip = 'skip'
+aliaces_skip = []
+
+comm_remove = 'remove'
+aliaces_remove = ['rm', 'rem']
+
+comm_clear_m = 'clr'
+aliaces_clear_m = ['cl', 'cr']
+
+comm_queue = 'queue'
+aliaces_queue = ['q', 'playlist', 'que']
+
+comm_now = 'now'
+aliaces_now = ['song', 'current', 'currentsong', 'playing']
+
+comm_volume = 'volume'
+aliaces_volume = ['vol', 'v']
+
+comm_leave = 'leave'
+aliaces_leave = ["stop", "dc", "disconnect", "bye"]
+
 
 
 # for password command

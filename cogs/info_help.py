@@ -75,6 +75,21 @@ class info_help(commands.Cog):
                 f"`{prefix[str(ctx.guild.id)]}{comm_films}`  ",
             inline=False
         )
+        embed.add_field(
+            name=f"🎵  Музыка ({prefix[str(ctx.guild.id)]}хелп Музыка)",
+            value=\
+                f"`{prefix[str(ctx.guild.id)]}{comm_connect}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_play}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_pause}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_resume}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_skip}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_remove}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_clear_m}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_queue}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_now}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_volume}`  " +
+                f"`{prefix[str(ctx.guild.id)]}{comm_leave}`  ",
+        )
 
         embed.set_footer(
             text="Dark Angel © 2022",
