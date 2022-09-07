@@ -12,7 +12,7 @@ tok = D_v1["token"]
 def get_prefix(bot, message):
     return prefix[str(message.guild.id)]
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members = True
 
 tenor = TenGiphPy.Tenor(token=teno["token"])
@@ -72,7 +72,7 @@ async def on_guild_join(guild):
 @bot.command()
 async def load(ctx, extension):
     if ctx.author.id == 391682780322594840:
-        bot.load_extension(f'cogs.{extension}')
+        await bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
         await ctx.channel.purge(limit=1)
@@ -81,7 +81,7 @@ async def load(ctx, extension):
 @bot.command()
 async def unload(ctx, extension):
     if ctx.author.id == 391682780322594840:
-        bot.unload_extension(f'cogs.{extension}')
+        await bot.unload_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
         await ctx.channel.purge(limit=1)
@@ -90,8 +90,8 @@ async def unload(ctx, extension):
 @bot.command()
 async def reload(ctx, extension):
     if ctx.author.id == 391682780322594840:
-        bot.unload_extension(f'cogs.{extension}')
-        bot.load_extension(f'cogs.{extension}')
+        await bot.unload_extension(f'cogs.{extension}')
+        await bot.load_extension(f'cogs.{extension}')
         await ctx.message.add_reaction("✅")
     else:
         await ctx.channel.purge(limit=1)
@@ -107,34 +107,23 @@ async def on_command_error(ctx, error):
         await ctx.send(f'**ЭЭЭ, харе спамить, приходи через {retry_after}**', delete_after=time_5s)
 
 # COGS LOAD FROM DIR
-for filename in os.listdir('./cogs'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.{filename[:-3]}')
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py") and not filename.startswith("_"):
+        bot.load_extension(f"cogs.{filename[:-3]}")
 
-for filename in os.listdir('./cogs/conf'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.conf.{filename[:-3]}')
-
-for filename in os.listdir('./cogs/creat'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.creat.{filename[:-3]}')
-
-for filename in os.listdir('./cogs/fun'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.fun.{filename[:-3]}')
-
-for filename in os.listdir('./cogs/info'):
-    if filename.endswith('.py') and not filename.startswith("_"):\
-        bot.load_extension(f'cogs.info.{filename[:-3]}')
-
-for filename in os.listdir('./cogs/moder'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.moder.{filename[:-3]}')
-
-for filename in os.listdir('./cogs/utils'):
-    if filename.endswith('.py') and not filename.startswith("_"):
-        bot.load_extension(f'cogs.utils.{filename[:-3]}')
-
-bot.run(tok)
+# bot.run(tok)
 
 # 𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑
+
+def bot_polling():
+    try:
+        bot.run(tok)
+    except:
+        traceback_error_string = traceback.format_exc()
+        with open("Error.log", "a") as myfile:
+            myfile.write(time.strftime("%c") + "\r\n<<START ERROR polling>>\r\n" + traceback_error_string + "\r\n<<END ERROR polling>>" + "\r\n\r\n")
+        bot.stop_polling()
+        time.sleep(10)
+        bot_polling()
+
+bot_polling()

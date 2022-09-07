@@ -3,5 +3,5 @@ D_v1 = {
     'bot': 'ИМЯ БОТА',
 }
 teno = {
-    'token': 'ВАШ ТОКЕН С TENOR.COM'
+    'token': 'ВАШ ТОКЕН С САЙТА TENOR.COM'
 }

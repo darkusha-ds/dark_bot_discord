@@ -1,9 +1,8 @@
-import discord, os, datetime, pytz, TenGiphPy, random, json, uuid, asyncio
-from discord.ext import commands, tasks
-from discord.utils import get
+import discord, os, datetime, pytz, TenGiphPy, random, json, uuid, asyncio, traceback, time, itertools, sys, youtube_dl, typing, functools
 from discord_together import DiscordTogether
-from random import shuffle
-from typing import Union
+from discord.ext import commands, tasks
+from async_timeout import timeout
+from discord.utils import get
 from phrazes import *
 
 # channel, where I can see bot time load
