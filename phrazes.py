@@ -9,7 +9,7 @@ ball = [
 hugs = [
     "{0} обнял по дружески {1}",
     "{0} крепко обнял {1}",
-    "{0} затискал {1}"
+    "{0} затискал {1}",
     "{0} чуть не задушил в объятиях {1}",
     "{0} стесняясь обнимает {1}"
 ]
@@ -135,7 +135,7 @@ error_message = "Ошибка, вы пишете не в том канале"
 error_perms = "У вас не достаточно прав на использование этой команды"
 error_member = "Пользователь не найден"
 error_comm = 'В написании команды произошла ошибка. \n Вам необходимо написать: \n'
-error_owner = "You aren't owner of this server"
+error_owner = "Вы не владелец сервера"
 error_comm_nick = ' ***@user#0000***'
 error_comm_question = ' ***вопрос***'
 
@@ -152,6 +152,7 @@ json_channels = "jsons/channels.json"
 json_owners = "jsons/owners.json"
 json_mutes = "jsons/mute_roles.json"
 json_mute_list = "jsons/mutes.json"
+json_music_ch = "jsons/music_ch.json"
 
 # for datetime
 region = "Asia/Yekaterinburg"
